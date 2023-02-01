@@ -1,0 +1,93 @@
+/* Reset button and input control */
+#test-code {
+  /* Customize the filed test code */
+}
+#test-code .form-control,
+#test-code .btn {
+  border: none;
+}
+#test-code .btn {
+  padding: 0 25px 0 20px !important;
+  color: var(--light-primary) !important;
+  background-color: #5842b1;
+  box-shadow: 0px 0px 0px #444;
+  transition: all 0.1s;
+  border-top-right-radius: 19px;
+  border-bottom-right-radius: 19px;
+}
+#test-code .form-control {
+  z-index: 999;
+  padding-left: 20px;
+  border-top-left-radius: 19px;
+  border-bottom-left-radius: 19px;
+}
+#test-code .btn:focus,
+#test-code .form-control:focus {
+  box-shadow: none;
+}
+#test-code .btn:hover {
+  box-shadow: 1px 1px 5px #444;
+  background-color: rgba(88, 66, 177, 0.8666666667) !important;
+}
+#test-code .btn:active,
+#test-code .btn:active:focus,
+#test-code .btn-light:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 1px 1px 8px rgba(68, 68, 68, 0.6);
+  background-color: rgba(88, 66, 177, 0.6) !important;
+}
+#test-code .form-control[type=text]:not(:-moz-placeholder-shown) {
+  text-transform: uppercase;
+}
+#test-code .form-control[type=text]:not(:-ms-input-placeholder) {
+  text-transform: uppercase;
+}
+#test-code .form-control[type=text]:not(:placeholder-shown) {
+  text-transform: uppercase;
+}
+
+/* Custom nav-link */
+.nav-link {
+  color: var(--light-primary) !important;
+  font-weight: 500;
+}
+
+.nav-item + .nav-item {
+  margin-left: 1rem;
+}
+
+.nav-item {
+  padding: 0px 8px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.nav-item:hover {
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.3137254902);
+}
+
+.nav-item:active {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+#avatar {
+  padding: 10px;
+  background-color: rgba(226, 226, 226, 0.3176470588);
+  border-radius: 20px;
+  cursor: pointer;
+  min-width: 230px;
+}
+#avatar:hover {
+  background-color: rgba(131, 131, 131, 0.3176470588);
+}
+#avatar .avt_image {
+  width: 40px;
+  border-radius: 20px;
+}
+#avatar .username {
+  color: var(--light-primary);
+  font-weight: 600;
+}
+#avatar i {
+  color: #FFFFFF;
+}/*# sourceMappingURL=NavigationBar.css.map */
