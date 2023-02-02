@@ -1,5 +1,5 @@
 /* Reset button and input control */
-#test-code {
+.test-code {
 
     .form-control,
     .btn {
@@ -39,7 +39,7 @@
 
     .btn:active,
     .btn:active:focus,
-    .btn-light:not(:disabled):not(.disabled):active:focus {
+    .btn:not(:disabled):not(.disabled):active:focus {
         box-shadow: 1px 1px 8px #44444499;
         background-color: #5842b199 !important;
     }
@@ -61,10 +61,11 @@
 
 .nav-item+.nav-item {
     margin-left: 1rem;
-
 }
 
 .nav-item {
+    text-align: center;
+    min-width: 70px;
     padding: 0px 8px;
     border-radius: 10px;
     transition: 0.2s;

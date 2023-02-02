@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Kolker+Brush&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Kolker Brush', cursive;
+    font-family: 'Nunito', sans-serif;
 }
 
 :root {
@@ -34,4 +39,36 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #3d5fc5;
+}
+
+/* Customize Button */
+.btn-customize {
+    color: var(--light-primary) !important;
+    background-color: #5842b1;
+    border-radius: 5px;
+    box-shadow: none;
+    transition: all 0.3s;
+}
+
+.btn-customize:focus {
+    box-shadow: none;
+}
+
+.btn-customize:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 5px #00000044;
+}
+
+.btn-customize:active {
+    background-color: #5842b188;
+}
+
+/* Customize Dropdown Menu */
+.dropdown-menu {
+    outline: none;
+    border: none;
+    background-color: #efebff;
+    box-shadow: 0 .2rem 1rem rgba(0, 0, 0, .15) !important;
+    animation-duration: 1s;
+    
 }

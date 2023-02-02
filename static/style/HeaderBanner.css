@@ -2,5 +2,35 @@
     height: 400px;
     background: linear-gradient(90deg, #5F85FC, #C46DFD);
 
+    ;
 
+}
+
+/* Customize image */
+.carousel-inner .carousel-item {
+    height: 400px;
+}
+
+.carousel-inner img {
+    height: 400px;
+    object-position: right;
+    object-fit: contain;
+}
+
+/* Customize Caption */
+.carousel-caption {
+    max-width: 500px;
+    top: 15%;
+    bottom: 15%;
+    right: unset;
+    left: 15%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-caption .title {
+    font-size: 50px;
+    text-align: left;
+    font-weight: 900;
 }

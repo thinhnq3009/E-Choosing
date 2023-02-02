@@ -1,12 +1,12 @@
 /* Reset button and input control */
-#test-code {
+.test-code {
   /* Customize the filed test code */
 }
-#test-code .form-control,
-#test-code .btn {
+.test-code .form-control,
+.test-code .btn {
   border: none;
 }
-#test-code .btn {
+.test-code .btn {
   padding: 0 25px 0 20px !important;
   color: var(--light-primary) !important;
   background-color: #5842b1;
@@ -15,33 +15,33 @@
   border-top-right-radius: 19px;
   border-bottom-right-radius: 19px;
 }
-#test-code .form-control {
+.test-code .form-control {
   z-index: 999;
   padding-left: 20px;
   border-top-left-radius: 19px;
   border-bottom-left-radius: 19px;
 }
-#test-code .btn:focus,
-#test-code .form-control:focus {
+.test-code .btn:focus,
+.test-code .form-control:focus {
   box-shadow: none;
 }
-#test-code .btn:hover {
+.test-code .btn:hover {
   box-shadow: 1px 1px 5px #444;
   background-color: rgba(88, 66, 177, 0.8666666667) !important;
 }
-#test-code .btn:active,
-#test-code .btn:active:focus,
-#test-code .btn-light:not(:disabled):not(.disabled):active:focus {
+.test-code .btn:active,
+.test-code .btn:active:focus,
+.test-code .btn:not(:disabled):not(.disabled):active:focus {
   box-shadow: 1px 1px 8px rgba(68, 68, 68, 0.6);
   background-color: rgba(88, 66, 177, 0.6) !important;
 }
-#test-code .form-control[type=text]:not(:-moz-placeholder-shown) {
+.test-code .form-control[type=text]:not(:-moz-placeholder-shown) {
   text-transform: uppercase;
 }
-#test-code .form-control[type=text]:not(:-ms-input-placeholder) {
+.test-code .form-control[type=text]:not(:-ms-input-placeholder) {
   text-transform: uppercase;
 }
-#test-code .form-control[type=text]:not(:placeholder-shown) {
+.test-code .form-control[type=text]:not(:placeholder-shown) {
   text-transform: uppercase;
 }
 
@@ -56,6 +56,8 @@
 }
 
 .nav-item {
+  text-align: center;
+  min-width: 70px;
   padding: 0px 8px;
   border-radius: 10px;
   transition: 0.2s;
