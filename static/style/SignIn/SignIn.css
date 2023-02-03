@@ -1,0 +1,109 @@
+.SignIn {
+  padding-bottom: 5rem;
+  background: linear-gradient(-120deg, #E83AF9, #61D6DD);
+  position: relative;
+  overflow: hidden;
+}
+.SignIn::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.0941176471);
+  border-radius: 10px;
+  right: 0;
+  top: 10%;
+  transform: rotate(-63deg) scale(1.5);
+  z-index: 0;
+}
+.SignIn::before {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.0941176471);
+  border-radius: 10px;
+  left: 25%;
+  bottom: 10%;
+  transform: rotate(-63deg) scale(1.5);
+}
+.SignIn::before::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(255, 255, 255, 0.0941176471);
+  border-radius: 10px;
+  left: 25%;
+  top: 5%;
+  transform: rotate(-63deg) scale(1.5);
+}
+.SignIn .stamp {
+  position: absolute;
+  font-size: 200px;
+  color: rgba(255, 255, 255, 0.0941176471);
+  border-radius: 10px;
+  left: 5%;
+  top: 5%;
+  transform: rotate(10deg) scale(1.5);
+}
+.SignIn .box {
+  z-index: 9;
+  margin-top: 4rem;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+.SignIn .box .box-body .btn {
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+}
+.SignIn .box .box-body .login-icon {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(0, 0, 0, 0.2666666667);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.SignIn .box .box-body .login-icon:hover {
+  border: 2px solid #5F85FC;
+}
+.SignIn .box .box-body .login-icon:active {
+  transform: translateY(3px);
+}
+.SignIn .box .box-body .login-icon + .login-icon {
+  margin-left: 1rem;
+}
+.SignIn .form-group {
+  position: relative;
+}
+.SignIn .form-group .form-control {
+  padding: 10px 10px 10px 40px !important;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2666666667);
+}
+.SignIn .form-group .form-icon {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.SignIn .form-group .right-icon {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}/*# sourceMappingURL=SignIn.css.map */

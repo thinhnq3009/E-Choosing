@@ -15,7 +15,7 @@
 }
 
 body {
-    background-color: #ffdffb;
+    background: linear-gradient(-120deg, #E83AF9, #61D6DD);
 }
 
 a {
@@ -104,4 +104,25 @@ a:hover {
     left: -60px;
     background: var(--primary);
     z-index: -1;
+}
+
+.hover {
+    transition: 0.2s;
+}
+
+.hover:hover {
+    box-shadow: 0 0rem 5px rgba(0, 0, 0, 0.536) !important;
+}
+
+
+.form-control.shadow-none {
+    box-shadow: none;
+}
+
+.form-control.shadow-none:active:focus {
+    box-shadow: none;
+}
+
+.form-control.shadow-none:focus {
+    box-shadow: none;
 }

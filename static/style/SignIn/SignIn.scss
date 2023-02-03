@@ -1,0 +1,134 @@
+.SignIn {
+    padding-bottom: 5rem;
+    background: linear-gradient(-120deg, #E83AF9, #61D6DD);
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: #00000018;
+        border-radius: 10px;
+        right: 0;
+        top: 10%;
+        transform: rotate(-63deg) scale(1.5);
+        z-index: 0;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: #ffffff18;
+        border-radius: 10px;
+        left: 25%;
+        bottom: 10%;
+        transform: rotate(-63deg) scale(1.5);
+    }
+
+    &::before::after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: #ffffff18;
+        border-radius: 10px;
+        left: 25%;
+        top: 5%;
+        transform: rotate(-63deg) scale(1.5);
+    }
+
+    .stamp {
+        position: absolute;
+        font-size: 200px;
+        color: #ffffff18;
+        border-radius: 10px;
+        left: 5%;
+        top: 5%;
+        transform: rotate(10deg) scale(1.5);
+    }
+
+    // Box Style
+    .box {
+        z-index: 9;
+        margin-top: 4rem;
+        padding: 2rem;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 15px;
+        background: #ffffff;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+
+        .box-body {
+
+
+
+            .btn {
+                border: none;
+                border-radius: 20px;
+                color: #ffffff;
+                font-size: 20px;
+                font-weight: 500;
+            }
+
+            .login-icon {
+
+                width: 40px;
+                height: 40px;
+                border: 2px solid #00000044;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 0.3s;
+
+                &:hover {
+                    border: 2px solid #5F85FC;
+                }
+
+                &:active {
+                    transform: translateY(3px);
+                }
+
+                +.login-icon {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+
+
+    .form-group {
+        position: relative;
+
+        .form-control {
+            padding: 10px 10px 10px 40px !important;
+            border-radius: 0px;
+            border: none;
+            border-bottom: 2px solid #00000044;
+
+        }
+
+        .form-icon {
+            position: absolute;
+            bottom: 0;
+            left: 5px;
+            font-size: 25px;
+            color: #00000099;
+
+
+        }
+
+        .right-icon {
+            position: absolute;
+            bottom: 0;
+            right: 5px;
+            font-size: 25px;
+            color: #00000099;
+            cursor: pointer;
+        }
+    }
+}

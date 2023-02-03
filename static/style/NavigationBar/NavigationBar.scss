@@ -62,7 +62,8 @@
     }
 
     .nav-item+.nav-item {
-        margin-left: 1rem;
+        margin-left: .5rem;
+        margin-right: .5rem;
     }
 
     .nav-item {
@@ -73,6 +74,12 @@
         transition: 0.2s;
     }
 
+    
+    .nav-item.active {
+        border-radius: 20px;
+        background-color: #ffffff40;
+        color: var(--violet) !important;
+    }
     .nav-item:hover {
         border-radius: 20px;
         background-color: #ffffff50;

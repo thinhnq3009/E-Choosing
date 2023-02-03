@@ -1,3 +1,6 @@
+.Footer {
+  box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
 .Footer h4 {
   margin-left: 5px;
   font-weight: 800;
