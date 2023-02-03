@@ -1,115 +1,118 @@
-/* Reset button and input control */
-.test-code {
+.NavigationBar {
 
-    .form-control,
-    .btn {
-        border: none;
+    /* Reset button and input control */
+    .test-code {
+
+        .form-control,
+        .btn {
+            border: none;
+        }
+
+        .btn {
+            padding: 0 25px 0 20px !important;
+            color: var(--light-primary) !important;
+            background-color: #5842b1;
+            box-shadow: 0px 0px 0px #444;
+            transition: all 0.1s;
+            border-top-right-radius: 19px;
+            border-bottom-right-radius: 19px;
+        }
+
+        .form-control {
+            z-index: 999;
+            padding-left: 20px;
+            border-top-left-radius: 19px;
+            border-bottom-left-radius: 19px;
+        }
+
+        .btn:focus,
+        .form-control:focus {
+            box-shadow: none;
+        }
+
+
+
+        .btn:hover {
+            box-shadow: 1px 1px 5px #444;
+            background-color: #5842b1dd !important;
+        }
+
+
+
+        .btn:active,
+        .btn:active:focus,
+        .btn:not(:disabled):not(.disabled):active:focus {
+            box-shadow: 1px 1px 8px #44444499;
+            background-color: #5842b199 !important;
+        }
+
+        /* Customize the filed test code */
+        .form-control[type="text"]:not(:placeholder-shown) {
+            text-transform: uppercase;
+        }
     }
 
-    .btn {
-        padding: 0 25px 0 20px !important;
+
+
+    /* Custom nav-link */
+
+    .nav-link {
         color: var(--light-primary) !important;
-        background-color: #5842b1;
-        box-shadow: 0px 0px 0px #444;
-        transition: all 0.1s;
-        border-top-right-radius: 19px;
-        border-bottom-right-radius: 19px;
+        font-weight: 500;
     }
 
-    .form-control {
-        z-index: 999;
-        padding-left: 20px;
-        border-top-left-radius: 19px;
-        border-bottom-left-radius: 19px;
+    .nav-item+.nav-item {
+        margin-left: 1rem;
     }
 
-    .btn:focus,
-    .form-control:focus {
-        box-shadow: none;
+    .nav-item {
+        text-align: center;
+        min-width: 70px;
+        padding: 0px 8px;
+        border-radius: 10px;
+        transition: 0.2s;
     }
 
-
-
-    .btn:hover {
-        box-shadow: 1px 1px 5px #444;
-        background-color: #5842b1dd !important;
-    }
-
-
-
-    .btn:active,
-    .btn:active:focus,
-    .btn:not(:disabled):not(.disabled):active:focus {
-        box-shadow: 1px 1px 8px #44444499;
-        background-color: #5842b199 !important;
-    }
-
-    /* Customize the filed test code */
-    .form-control[type="text"]:not(:placeholder-shown) {
-        text-transform: uppercase;
-    }
-}
-
-
-
-/* Custom nav-link */
-
-.nav-link {
-    color: var(--light-primary) !important;
-    font-weight: 500;
-}
-
-.nav-item+.nav-item {
-    margin-left: 1rem;
-}
-
-.nav-item {
-    text-align: center;
-    min-width: 70px;
-    padding: 0px 8px;
-    border-radius: 10px;
-    transition: 0.2s;
-}
-
-.nav-item:hover {
-    border-radius: 20px;
-    background-color: #ffffff50;
-}
-
-.nav-item:active {
-    background-color: #ffffff99;
-}
-
-
-
-// Avatar Container 
-#avatar {
-
-    padding: 10px;
-    background-color: #e2e2e251;
-    border-radius: 20px;
-    cursor: pointer;
-    min-width: 230px;
-
-    &:hover {
-        background-color: #83838351;
-    }
-
-
-
-    .avt_image {
-        width: 40px;
+    .nav-item:hover {
         border-radius: 20px;
+        background-color: #ffffff50;
     }
 
-    .username {
-        color: var(--light-primary);
-        font-weight: 600;
-    }
-
-    i {
-        color: #FFFFFF;
+    .nav-item:active {
+        background-color: #ffffff99;
     }
 
 
+
+    // Avatar Container 
+    #avatar {
+
+        padding: 10px;
+        background-color: #e2e2e251;
+        border-radius: 20px;
+        cursor: pointer;
+        min-width: 230px;
+
+        &:hover {
+            background-color: #83838351;
+        }
+
+
+
+        .avt_image {
+            width: 40px;
+            border-radius: 20px;
+        }
+
+        .username {
+            color: var(--light-primary);
+            font-weight: 600;
+        }
+
+        i {
+            color: #FFFFFF;
+        }
+
+
+    }
 }

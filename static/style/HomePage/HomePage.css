@@ -1,0 +1,51 @@
+.HomePage .card {
+  border-radius: 18px;
+  border: none;
+  background-color: rgba(143, 121, 252, 0.7333333333);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: var(--light-primary);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+.HomePage .card .bi {
+  font-size: 70px;
+}
+.HomePage .card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  background-color: #8f79fc;
+}
+.HomePage .quiz-banner {
+  position: relative;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(143, 121, 252, 0.8);
+  background-clip: content-box;
+  border-radius: 25px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.HomePage .quiz-banner img {
+  margin-bottom: 80px !important;
+}
+.HomePage .quiz-banner .quiz-title {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 15px;
+  left: 25%;
+  right: 25%;
+  border-radius: 15px;
+  background-color: #fff;
+}
+.HomePage .quiz-banner:hover {
+  transform: scale(1.06);
+}
+.HomePage .quiz-banner:active {
+  background-color: #8f79fc;
+}/*# sourceMappingURL=HomePage.css.map */
