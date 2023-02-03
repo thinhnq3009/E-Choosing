@@ -1,0 +1,41 @@
+.Menu {
+  transition: 0.2s;
+}
+.Menu .box {
+  width: calc(100% + 32px);
+  border-radius: 15px;
+}
+.Menu .box .question-container {
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.Menu .box .question-container .item {
+  --size: 42px;
+  display: block;
+  width: var(--size) !important;
+  height: var(--size) !important;
+  background: paleturquoise;
+  border-radius: calc(var(--size) / 2) !important;
+  text-align: center;
+  line-height: var(--size);
+  cursor: pointer;
+}
+
+.Display {
+  background-color: whitesmoke;
+  border-radius: 15px;
+}
+.Display .btn {
+  font-size: 20px;
+}
+.Display .questions-container {
+  width: 100%;
+}
+.Display .questions-container .question-img {
+  width: 100%;
+  height: 300px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}/*# sourceMappingURL=Menu.css.map */
