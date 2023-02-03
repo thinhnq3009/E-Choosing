@@ -32,7 +32,18 @@
   transform: translateX(-50%);
 }
 .Course .card-course .action .btn {
-  -webkit-animation-duration: 0.4s;
-          animation-duration: 0.4s;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
   box-shadow: none;
+  border-radius: 0;
+}
+.Course .card-course .action .btn:first-child {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding-left: 15px;
+}
+.Course .card-course .action .btn:last-child {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding-right: 15px;
 }/*# sourceMappingURL=Course.css.map */

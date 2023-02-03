@@ -43,11 +43,24 @@
             transform: translateX(-50%);
 
             .btn {
-                animation-duration: 0.4s;
+                animation-duration: 0.5s;
                 box-shadow: none;
+                border-radius: 0;
             }
 
-            
+            .btn:first-child {
+                border-top-left-radius: 20px;
+                border-bottom-left-radius: 20px;
+                padding-left: 15px;
+            }
+
+            .btn:last-child {
+                border-top-right-radius: 20px;
+                border-bottom-right-radius: 20px;
+                padding-right: 15px;
+            }
+
+
         }
 
     }

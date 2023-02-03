@@ -1,0 +1,11 @@
+.Contract .group .icon {
+  width: 60px;
+  height: 60px;
+  margin-right: 1.5rem;
+  background-color: var(--violet);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border-radius: 10px;
+}/*# sourceMappingURL=Contract.css.map */

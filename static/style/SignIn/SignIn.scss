@@ -129,6 +129,10 @@
             font-size: 25px;
             color: #00000099;
             cursor: pointer;
+
+        }
+        .right-icon.is-valid  {
+            color: var(--success);
         }
     }
 }
