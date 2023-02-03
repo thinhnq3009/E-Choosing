@@ -1,0 +1,56 @@
+.Course {
+
+    .card-course {
+
+
+
+        padding: 1rem;
+        border-radius: 10px;
+        background-color: #8f79fcbb;
+        transition: all 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 0 10px rgb(0 0 0 / 40%);
+            background-color: #8f79fc;
+        }
+
+        &:hover .course-img {
+            transform: scale(1.15);
+        }
+
+
+        .course-img {
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .content {
+            border-radius: 35px;
+        }
+
+        &:hover .action {
+            display: flex;
+        }
+
+        .action {
+            display: none;
+            position: absolute;
+            justify-content: center;
+            top: 40%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            .btn {
+                animation-duration: 0.4s;
+                box-shadow: none;
+            }
+
+            
+        }
+
+    }
+
+
+}

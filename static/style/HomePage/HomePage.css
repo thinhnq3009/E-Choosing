@@ -1,4 +1,5 @@
 .HomePage .card {
+  height: 100%;
   border-radius: 18px;
   border: none;
   background-color: rgba(143, 121, 252, 0.7333333333);

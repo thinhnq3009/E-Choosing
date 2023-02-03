@@ -1,0 +1,38 @@
+.Course .card-course {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgba(143, 121, 252, 0.7333333333);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.Course .card-course:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  background-color: #8f79fc;
+}
+.Course .card-course:hover .course-img {
+  transform: scale(1.15);
+}
+.Course .card-course .course-img {
+  width: 100%;
+  transition: 0.3s;
+}
+.Course .card-course .content {
+  border-radius: 35px;
+}
+.Course .card-course:hover .action {
+  display: flex;
+}
+.Course .card-course .action {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.Course .card-course .action .btn {
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+  box-shadow: none;
+}/*# sourceMappingURL=Course.css.map */
