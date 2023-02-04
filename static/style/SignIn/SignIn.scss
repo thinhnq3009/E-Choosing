@@ -62,40 +62,35 @@
         background: #ffffff;
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 
-        .box-body {
+        .btn {
+            border: none;
+            border-radius: 20px;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 500;
+        }
 
+        .login-icon {
 
+            width: 40px;
+            height: 40px;
+            border: 2px solid #00000044;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
 
-            .btn {
-                border: none;
-                border-radius: 20px;
-                color: #ffffff;
-                font-size: 20px;
-                font-weight: 500;
+            &:hover {
+                border: 2px solid #5F85FC;
             }
 
-            .login-icon {
+            &:active {
+                transform: translateY(3px);
+            }
 
-                width: 40px;
-                height: 40px;
-                border: 2px solid #00000044;
-                border-radius: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: 0.3s;
-
-                &:hover {
-                    border: 2px solid #5F85FC;
-                }
-
-                &:active {
-                    transform: translateY(3px);
-                }
-
-                +.login-icon {
-                    margin-left: 1rem;
-                }
+            +.login-icon {
+                margin-left: 1rem;
             }
         }
     }
@@ -131,7 +126,8 @@
             cursor: pointer;
 
         }
-        .right-icon.is-valid  {
+
+        .right-icon.is-valid {
             color: var(--success);
         }
     }

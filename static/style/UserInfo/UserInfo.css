@@ -1,0 +1,99 @@
+.UserInfo .box {
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  background-color: aliceblue;
+}
+.UserInfo .avatar {
+  width: 70%;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+.UserInfo .avatar:hover .bi {
+  display: flex;
+  -webkit-animation: fadeInUp 0.5s forwards;
+          animation: fadeInUp 0.5s forwards;
+}
+.UserInfo .avatar .avt-img {
+  width: 100%;
+}
+.UserInfo .avatar .bi {
+  z-index: 99;
+  width: 100%;
+  height: 36%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #757575;
+  font-size: 3rem;
+  position: absolute;
+  bottom: 0;
+  -webkit-animation: fadeOutDown 0.5s forwards;
+          animation: fadeOutDown 0.5s forwards;
+  cursor: pointer;
+}
+.UserInfo .info :last-child {
+  border-bottom: none !important;
+}
+.UserInfo .info .info-item {
+  display: flex;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3333333333);
+  margin-bottom: 0.7rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.UserInfo .info .info-item .info-item-title .bi {
+  font-size: 20px;
+  margin-right: 0.5rem;
+}
+.UserInfo .info .info-item .info-item-title span {
+  font-size: 18px;
+  font-weight: 500;
+}
+.UserInfo .info .info-item .info-item-content {
+  font-size: 18px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: end;
+}
+.UserInfo .info .info-item .info-item-content input[value] {
+  padding-left: 1rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-align: right;
+  flex: 1;
+}
+.UserInfo .info .info-item .info-item-content i.bi {
+  margin-left: 0.4rem;
+  cursor: pointer;
+}
+.UserInfo .form-group {
+  position: relative;
+}
+.UserInfo .form-group .form-control {
+  padding: 10px 10px 10px 40px !important;
+  border-radius: 0px;
+  border: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2666666667);
+}
+.UserInfo .form-group .form-icon {
+  position: absolute;
+  bottom: 0;
+  left: 5px;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.UserInfo .form-group .right-icon {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.UserInfo .form-group .right-icon.is-valid {
+  color: var(--success);
+}/*# sourceMappingURL=UserInfo.css.map */

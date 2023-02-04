@@ -57,14 +57,14 @@
   background: #ffffff;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
-.SignIn .box .box-body .btn {
+.SignIn .box .btn {
   border: none;
   border-radius: 20px;
   color: #ffffff;
   font-size: 20px;
   font-weight: 500;
 }
-.SignIn .box .box-body .login-icon {
+.SignIn .box .login-icon {
   width: 40px;
   height: 40px;
   border: 2px solid rgba(0, 0, 0, 0.2666666667);
@@ -74,13 +74,13 @@
   justify-content: center;
   transition: 0.3s;
 }
-.SignIn .box .box-body .login-icon:hover {
+.SignIn .box .login-icon:hover {
   border: 2px solid #5F85FC;
 }
-.SignIn .box .box-body .login-icon:active {
+.SignIn .box .login-icon:active {
   transform: translateY(3px);
 }
-.SignIn .box .box-body .login-icon + .login-icon {
+.SignIn .box .login-icon + .login-icon {
   margin-left: 1rem;
 }
 .SignIn .form-group {
