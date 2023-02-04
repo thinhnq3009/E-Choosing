@@ -1,5 +1,6 @@
 .Menu {
     transition: 0.2s;
+
     .box {
         // width: calc(100% + 32px);
         border-radius: 15px;
@@ -16,7 +17,7 @@
                 display: block;
                 width: $size !important;
                 height: $size !important;
-                background: #BFACE2;
+                background: #cab9e9;
                 border-radius: calc($size / 2) !important;
                 text-align: center;
                 line-height: $size;
@@ -25,9 +26,13 @@
                 color: white;
 
                 &.done {
+                    background-color: #0AA1DD;
+                }
+
+                &.correct {
                     background-color: #39AEA9;
                 }
-                
+
                 &.note {
                     background-color: #F2CD5C;
                 }
@@ -36,14 +41,21 @@
                     background-color: #F34573;
                 }
 
+                &.doing {
+                    border: 0.1rem solid #5842b1bb ;
+                    box-shadow: 0 0 .5rem .1rem #5842b1 !important;
+                }
+
                 &:hover {
-                    box-shadow: 0 0 .4rem  rgba(0, 0, 0, 0.3);
+                    box-shadow: 0 0 .4rem rgba(0, 0, 0, 0.3);
                     transform: translateY(-2px) scale(1.01);
                 }
 
                 &:active {
                     transform: translateY(1px) scale(1.01);
                 }
+
+              
 
             }
         }
@@ -68,10 +80,55 @@
 
     .questions-container {
         width: 100%;
+
         .question-img {
             width: 100%;
             height: 300px;
             object-fit: contain;
+        }
+    }
+
+
+    .answer-container {
+        counter-reset: item;
+
+        input {
+            display: none;
+        }
+
+    }
+
+    .answer-item {
+        padding: 15px 20px;
+        background-color: #BFACE2;
+        border-radius: 20px;
+
+        * {
+            cursor: pointer;
+        }
+
+        &.checked {
+            background-color: #F2CD5C;
+        }
+
+        &.incorrect {
+            background-color: #F34573;
+        }
+
+        &.correct {
+            background-color: #39AEA9;
+        }
+
+        .choose-tag {
+
+            margin-right: 1rem;
+
+            &:after {
+                content: counter(item, upper-alpha) ". ";
+                counter-increment: item;
+                font-size: 18px;
+                font-weight: 500;
+            }
         }
     }
 }

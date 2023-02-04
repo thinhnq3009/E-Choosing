@@ -14,7 +14,7 @@
   display: block;
   width: 42px !important;
   height: 42px !important;
-  background: #BFACE2;
+  background: #cab9e9;
   border-radius: 21px !important;
   text-align: center;
   line-height: 42px;
@@ -23,6 +23,9 @@
   color: white;
 }
 .Menu .box .question-container .item.done {
+  background-color: #0AA1DD;
+}
+.Menu .box .question-container .item.correct {
   background-color: #39AEA9;
 }
 .Menu .box .question-container .item.note {
@@ -30,6 +33,10 @@
 }
 .Menu .box .question-container .item.incorrect {
   background-color: #F34573;
+}
+.Menu .box .question-container .item.doing {
+  border: 0.1rem solid rgba(88, 66, 177, 0.7333333333);
+  box-shadow: 0 0 0.5rem 0.1rem #5842b1 !important;
 }
 .Menu .box .question-container .item:hover {
   box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
@@ -59,4 +66,36 @@
   height: 300px;
   -o-object-fit: contain;
      object-fit: contain;
+}
+.Display .answer-container {
+  counter-reset: item;
+}
+.Display .answer-container input {
+  display: none;
+}
+.Display .answer-item {
+  padding: 15px 20px;
+  background-color: #BFACE2;
+  border-radius: 20px;
+}
+.Display .answer-item * {
+  cursor: pointer;
+}
+.Display .answer-item.checked {
+  background-color: #F2CD5C;
+}
+.Display .answer-item.incorrect {
+  background-color: #F34573;
+}
+.Display .answer-item.correct {
+  background-color: #39AEA9;
+}
+.Display .answer-item .choose-tag {
+  margin-right: 1rem;
+}
+.Display .answer-item .choose-tag:after {
+  content: counter(item, upper-alpha) ". ";
+  counter-increment: item;
+  font-size: 18px;
+  font-weight: 500;
 }/*# sourceMappingURL=Doing.css.map */
