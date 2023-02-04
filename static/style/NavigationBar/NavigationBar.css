@@ -10,6 +10,7 @@
   border: none;
 }
 .NavigationBar .test-code .btn {
+  line-height: 38px;
   padding: 0 25px 0 20px !important;
   color: var(--light-primary) !important;
   background-color: #5842b1;

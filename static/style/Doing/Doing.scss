@@ -102,6 +102,7 @@
         padding: 15px 20px;
         background-color: #BFACE2;
         border-radius: 20px;
+        transition: 0.3s;
 
         * {
             cursor: pointer;
@@ -117,6 +118,10 @@
 
         &.correct {
             background-color: #39AEA9;
+        }
+
+        &:hover {
+            box-shadow: 0 0 .5rem #0000007c;
         }
 
         .choose-tag {
