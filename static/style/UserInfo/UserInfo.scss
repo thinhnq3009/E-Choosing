@@ -91,6 +91,49 @@
         }
     }
 
+    .overview-container {
+        padding: 0 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .item {
+
+            margin-bottom: 1rem;
+            border-bottom: 2px solid currentColor;
+
+
+            .item-title {
+                font-size: 18px;
+                font-weight: 500;
+            }
+
+            .item-process {
+                padding: 0 0.7rem 0 0.3rem;
+                font-size: 40px;
+                display: inline;
+                color: #333333;
+            }
+
+
+
+         
+
+            &:nth-child(1) {
+                color: #20655F !important;
+            }
+
+            &:nth-child(2) {
+                color: #f6a315 !important;
+            }
+
+            &:nth-child(3) {
+                color: #161D6F !important;
+            }
+
+        }
+
+    }
 
     .form-group {
         position: relative;

@@ -70,6 +70,35 @@
   margin-left: 0.4rem;
   cursor: pointer;
 }
+.UserInfo .overview-container {
+  padding: 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.UserInfo .overview-container .item {
+  margin-bottom: 1rem;
+  border-bottom: 2px solid currentColor;
+}
+.UserInfo .overview-container .item .item-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+.UserInfo .overview-container .item .item-process {
+  padding: 0 0.7rem 0 0.3rem;
+  font-size: 40px;
+  display: inline;
+  color: #333333;
+}
+.UserInfo .overview-container .item:nth-child(1) {
+  color: #20655F !important;
+}
+.UserInfo .overview-container .item:nth-child(2) {
+  color: #f6a315 !important;
+}
+.UserInfo .overview-container .item:nth-child(3) {
+  color: #161D6F !important;
+}
 .UserInfo .form-group {
   position: relative;
 }
