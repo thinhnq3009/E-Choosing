@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/static/style/HeaderBanner.css">
     <link rel="stylesheet" href="/static/style/Footer/Footer.css">
     <link rel="stylesheet" href="/static/style/Menu/Menu.css">
+    <link rel="stylesheet" href="/static/style/Doing/Doing.css">
     <link rel="stylesheet" href="/static/style/NavigationBar/NavigationBar.css">
 
 
@@ -84,104 +85,104 @@
     <!-- Navigation -->
 
     <!-- Content -->
-    <main class="container-fluid">
+    <main class="container-fluid prevent-select mb-5 mt-4">
         <div class="row">
+
+            <!-- Menu -->
             <div class="col-12 col-md-4 d-flex">
-                <div class="collapse- width Menu" id="menu">
-                    <div class="p-4">
-                        <div class="box bg-light p-3 shadow">
-                            <div class="info d-flex align-items-center">
-                                <img class="rounded-circle mr-3" src="/static/image/avatar.jpg" width="70px" alt="">
-                                <div class="">
-                                    <h4 class="font-weight-bold">Nguyễn Quốc Thịnh</h4>
-                                    <h6>Done: 12/20 Questions</h6>
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <div class="question-container">
-                                <span class="item mb-2 mx-1 hover">1</span>
-                                <span class="item mb-2 mx-1 hover">2</span>
-                                <span class="item mb-2 mx-1 hover">3</span>
-                                <span class="item mb-2 mx-1 hover">4</span>
-                                <span class="item mb-2 mx-1 hover">5</span>
-                                <span class="item mb-2 mx-1 hover">6</span>
-                                <span class="item mb-2 mx-1 hover">7</span>
-                                <span class="item mb-2 mx-1 hover">8</span>
-                                <span class="item mb-2 mx-1 hover">9</span>
-                                <span class="item mb-2 mx-1 hover">10</span>
-                                <span class="item mb-2 mx-1 hover">11</span>
-                                <span class="item mb-2 mx-1 hover">12</span>
-                                <span class="item mb-2 mx-1 hover">13</span>
-                                <span class="item mb-2 mx-1 hover">14</span>
-                                <span class="item mb-2 mx-1 hover">15</span>
-                                <span class="item mb-2 mx-1 hover">16</span>
-                                <span class="item mb-2 mx-1 hover">17</span>
-                                <span class="item mb-2 mx-1 hover">18</span>
-                                <span class="item mb-2 mx-1 hover">19</span>
-                                <span class="item">20</span>
+                <div class="Menu mb-3">
+                    <div class="box bg-light p-3 shadow">
+                        <div class="info d-flex align-items-center">
+                            <img class="rounded-circle mr-3" src="/static/image/avatar.jpg" width="70px" alt="">
+                            <div class="">
+                                <h4 class="font-weight-bold">Nguyễn Quốc Thịnh</h4>
+                                <h6>Done: 12/20 Questions</h6>
                             </div>
                         </div>
+
+                        <hr>
+
+                        <div class="question-container mb-3">
+                            <span class="item mb-2 mx-1 note">1</span>
+                            <span class="item mb-2 mx-1 note">2</span>
+                            <span class="item mb-2 mx-1 done">3</span>
+                            <span class="item mb-2 mx-1 done">4</span>
+                            <span class="item mb-2 mx-1 done">5</span>
+                            <span class="item mb-2 mx-1 done">6</span>
+                            <span class="item mb-2 mx-1 incorrect">7</span>
+                            <span class="item mb-2 mx-1 note">8</span>
+                            <span class="item mb-2 mx-1 done">9</span>
+                            <span class="item mb-2 mx-1 incorrect">10</span>
+                            <span class="item mb-2 mx-1 note">11</span>
+                            <span class="item mb-2 mx-1 done">12</span>
+                            <span class="item mb-2 mx-1 note">13</span>
+                            <span class="item mb-2 mx-1 note">14</span>
+                            <span class="item mb-2 mx-1 done">15</span>
+                            <span class="item mb-2 mx-1 incorrect">16</span>
+                            <span class="item mb-2 mx-1">17</span>
+                            <span class="item mb-2 mx-1">18</span>
+                            <span class="item mb-2 mx-1">19</span>
+                            <span class="item">20</span>
+                        </div>
+
+                        <button class="btn w-100 btn-customize" type="submit" data-target="#confirm-submit"
+                            data-toggle="modal">Submit</button>
                     </div>
                 </div>
             </div>
 
+            <!-- Questions display screen -->
             <div class="col-12 col-md-8">
-                <div class=" p-4">
-                    <div class="Display p-5">
-                        <nav class="d-flex justify-content-between mb-3">
-                            <button class="btn btn-customize px-4 hover">
-                                <i class="bi bi-arrow-left-circle"></i>
-                            </button>
-                            <button class="btn btn-customize px-4 hover">
-                                <i class="bi bi-bookmark-star"></i>
-                            </button>
-                            <button class="btn btn-customize px-4 hover">
-                                <i class="bi bi-arrow-right-circle"></i>
-                            </button>
-                        </nav>
+                <div class="Display p-5 mb-3">
+                    <nav class="d-flex justify-content-between mb-3">
+                        <button class="btn rounded btn-customize px-4 hover">
+                            <i class="bi bi-arrow-left-circle"></i>
+                        </button>
+                        <button class="btn rounded btn-customize px-4 hover">
+                            <i class="bi bi-bookmark-star"></i>
+                        </button>
+                        <button class="btn rounded btn-customize px-4 hover">
+                            <i class="bi bi-arrow-right-circle"></i>
+                        </button>
+                    </nav>
 
-                        <div class="questions-container mb-3">
-                            <h4>Question 1:</h4>
-                            <h6>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad aliquid dolor est harum
-                                voluptates! Itaque, ratione consectetur. A tenetur sapiente officia? Aliquid esse
-                                aliquam soluta temporibus quis adipisci nulla itaque?</h6>
-                            <img class="question-img" src="/static/image/banner_3.png" alt="Question 1">
+                    <div class="questions-container mb-3">
+                        <h4>Question 1:</h4>
+                        <h6>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad aliquid dolor est harum
+                            voluptates! Itaque, ratione consectetur. A tenetur sapiente officia? Aliquid esse
+                            aliquam soluta temporibus quis adipisci nulla itaque?</h6>
+                        <img class="question-img" src="/static/image/banner_3.png" alt="Question 1">
+                    </div>
+
+                    <div class="answer-container">
+                        <div class="answer-item mb-4 d-flex align-items-center">
+                            <input class="mr-3" type="radio" name="answer" id="answer1">
+                            <label class="mb-0" for="answer1">Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit. Explicabo praesentium non velit. Dolor ipsum eligendi similique, maiores, ipsa
+                                velit, rerum nemo a exercitationem doloremque beatae ea fugit corporis? Repellendus,
+                                officia.</label>
                         </div>
-
-                        <div class="answer-container">
-                            <div class="answer-item mb-4 d-flex align-items-center">
-                                <input class="mr-3" type="radio" name="answer" id="answer1">
-                                <label class="mb-0" for="answer1">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Explicabo praesentium non velit. Dolor ipsum eligendi similique, maiores, ipsa
-                                    velit, rerum nemo a exercitationem doloremque beatae ea fugit corporis? Repellendus,
-                                    officia.</label>
-                            </div>
-                            <div class="answer-item mb-4 d-flex align-items-center">
-                                <input class="mr-3" type="radio" name="answer" id="answer2">
-                                <label class="mb-0" for="answer2">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Explicabo praesentium non velit. Dolor ipsum eligendi similique, maiores, ipsa
-                                    velit, rerum nemo a exercitationem doloremque beatae ea fugit corporis? Repellendus,
-                                    officia.</label>
-                            </div>
-                            <div class="answer-item mb-4 d-flex align-items-center">
-                                <input class="mr-3" type="radio" name="answer" id="answer3">
-                                <label class="mb-0" for="answer3">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Explicabo praesentium non velit. Dolor ipsum eligendi similique, maiores, ipsa
-                                    velit, rerum nemo a exercitationem doloremque beatae ea fugit corporis? Repellendus,
-                                    officia.</label>
-                            </div>
-                            <div class="answer-item mb-4 d-flex align-items-center">
-                                <input class="mr-3" type="radio" name="answer" id="answer4">
-                                <label class="mb-0" for="answer4">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Explicabo praesentium non velit. Dolor ipsum eligendi similique, maiores, ipsa
-                                    velit, rerum nemo a exercitationem doloremque beatae ea fugit corporis? Repellendus,
-                                    officia.</label>
-                            </div>
+                        <div class="answer-item mb-4 d-flex align-items-center">
+                            <input class="mr-3" type="radio" name="answer" id="answer2">
+                            <label class="mb-0" for="answer2">Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit. Explicabo praesentium non velit. Dolor ipsum eligendi similique, maiores, ipsa
+                                velit, rerum nemo a exercitationem doloremque beatae ea fugit corporis? Repellendus,
+                                officia.</label>
                         </div>
-
-
+                        <div class="answer-item mb-4 d-flex align-items-center">
+                            <input class="mr-3" type="radio" name="answer" id="answer3">
+                            <label class="mb-0" for="answer3">Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit. Explicabo praesentium non velit. Dolor ipsum eligendi similique, maiores, ipsa
+                                velit, rerum nemo a exercitationem doloremque beatae ea fugit corporis? Repellendus,
+                                officia.</label>
+                        </div>
+                        <div class="answer-item mb-4 d-flex align-items-center">
+                            <input class="mr-3" type="radio" name="answer" id="answer4">
+                            <label class="mb-0" for="answer4">Lorem ipsum dolor sit amet consectetur adipisicing
+                                elit. Explicabo praesentium non velit. Dolor ipsum eligendi similique, maiores, ipsa
+                                velit, rerum nemo a exercitationem doloremque beatae ea fugit corporis? Repellendus,
+                                officia.</label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -264,6 +265,41 @@
     </footer>
 
     <!-- Footer -->
+
+    <!-- Modal -->
+    <!-- Modal -->
+
+    <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header pb-1">
+                    <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Notification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="bi bi-x-circle"></i></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to submit the exam?</p>
+                    <div class="ml-3">
+                        <p>
+                            <span class="font-weight-bold">Done: </span>
+                            <span id="number-of-questions">10/20</span> Question
+                        </p>
+                        <p>
+                            <span class="font-weight-bold">Time left: </span>
+                            <span id="time-left">10:30s</span>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn rounded px-4 btn-secondary" data-dismiss="modal">Continue</button>
+                    <button type="button" class="btn rounded px-4 btn-success">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
 
 
 

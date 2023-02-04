@@ -114,17 +114,18 @@ a:hover {
     box-shadow: 0 0rem 5px rgba(0, 0, 0, 0.536) !important;
 }
 
-
-.form-control.shadow-none {
-    box-shadow: none;
-}
-
-.form-control.shadow-none:active:focus {
-    box-shadow: none;
-}
-
+.form-control.shadow-none,
+.form-control.shadow-none:active:focus,
 .form-control.shadow-none:focus {
     box-shadow: none;
 }
 
+.prevent-select {
+    user-select: none;
+ }
+
+ .btn.rounded {
+    border-radius: 999px !important;
+ }
+ 
 
