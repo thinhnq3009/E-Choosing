@@ -104,17 +104,22 @@
             border-radius: 0px;
             border: none;
             border-bottom: 2px solid #00000044;
-
+            margin-bottom: calc(25px + 15px);
         }
 
         .form-icon {
             position: absolute;
-            bottom: 0;
+            bottom: 0px;
             left: 5px;
             font-size: 25px;
             color: #00000099;
+        }
 
-
+        .text-muted {
+            padding-left: 40px;
+            color: var(--danger) !important;
+            position: absolute;
+            bottom: -25px;
         }
 
         .right-icon {

@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Kolker+Brush&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+@import url(./Loading/Loading.css);
 
 :root {
     --light-primary: white;
     --violet: #5842b1;
+    --danger: #D61355;
 }
 
 * {
@@ -122,10 +124,21 @@ a:hover {
 
 .prevent-select {
     user-select: none;
- }
+}
 
- .btn.rounded {
+.loading-animated::before {
+    line-height: 100%;
+    animation: turn 1s linear infinite;
+}
+
+@keyframes turn {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+.btn.rounded {
     border-radius: 999px !important;
- }
- 
-
+}

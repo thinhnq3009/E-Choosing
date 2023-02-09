@@ -15,6 +15,7 @@
   top: 10%;
   transform: rotate(-63deg) scale(1.5);
   z-index: 0;
+  background-image: radial-gradient();
 }
 .SignIn::before {
   content: "";
@@ -91,13 +92,20 @@
   border-radius: 0px;
   border: none;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2666666667);
+  margin-bottom: 40px;
 }
 .SignIn .form-group .form-icon {
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
   left: 5px;
   font-size: 25px;
   color: rgba(0, 0, 0, 0.6);
+}
+.SignIn .form-group .text-muted {
+  padding-left: 40px;
+  color: var(--danger) !important;
+  position: absolute;
+  bottom: -25px;
 }
 .SignIn .form-group .right-icon {
   position: absolute;

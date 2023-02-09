@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JSON to MySQL Converter</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        #code {
+            margin-bottom: 20px;
+        }
+
+        #name,
+        #json-input {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #json-input {
+            height: 20vh;
+        }
+
+        #convert-button {
+            width: 100px;
+            height: 40px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        #mysql-output {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: lightgray;
+            margin-bottom: 20px;
+        }
+
+        #code {
+            width: 100px;
+            height: 40px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JSON to MySQL Converter</h1>
+    Môn học:
+    <select name="" id="code">
+        <option value="ADUI">ADUI</option>
+        <option value="ASNE">ASNE</option>
+        <option value="CLCO">CLCO</option>
+        <option value="DBAV">DBAV</option>
+        <option value="DBBS">DBBS</option>
+        <option value="GAME">GAME</option>
+        <option value="HTCS">HTCS</option>
+        <option value="INMA">INMA</option>
+        <option value="JAAV">JAAV</option>
+        <option value="JABS">JABS</option>
+        <option value="JSPR">JSPR</option>
+        <option value="LAYO">LAYO</option>
+        <option value="MOWE">MOWE</option>
+        <option value="PHPP">PHPP</option>
+        <option value="PMAG">PMAG</option>
+        <option value="VBPR">VBPR</option>
+        <option value="WEBU">WEBU</option>
+    </select>
+    Tên quiz: <input id="name">
+    <pre id="mysql-output0">Đây là output</pre>
+    <button id="cp-btn0">Copy</button>
+    <input type="text" id="quiz-id">
+    Input: <input id="json-input" rows="10" cols="50" value="[1, 2,3,45]"></input><br>
+    <button id="convert-button">Convert</button>
+    Output:
+
+    <button id="cp-btn">Copy</button>
+    <pre id="mysql-output">Đây là output</pre>
+    <script>
+
+        const random = () => {
+            min = Math.ceil(10000);
+            max = Math.floor(9999999);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        const convertButton = document.getElementById("convert-button");
+        const jsonInput = document.getElementById("json-input");
+        const mysqlOutput = document.getElementById("mysql-output");
+        const mysqlOutput0 = document.getElementById("mysql-output0");
+        const quiz_id = document.getElementById("quiz-id");
+
+        convertButton.addEventListener("click", function () {
+            const jsonData = JSON.parse(jsonInput.value);
+            const code = document.getElementById("code").value;
+            const name = document.getElementById("name").value;
+
+            let sql = `INSERT INTO quizzes ( subject_code, name, duration) VALUES ('${code}', '${name}', ${30 * 60});\n\n`;
+            mysqlOutput0.innerHTML = sql;
+            sql = ""
+
+            jsonData.map(item => {
+
+                const q_id = random();
+
+                sql += `\nINSERT INTO questions (id, quizz_id, content, marks) VALUES (${q_id}, ${quiz_id.value}, '${item.Text}', 25); \n`
+
+                correct = item.AnswerId
+
+                item.Answers.map(answer => {
+
+                    sql += `     INSERT INTO answers(id, content, quesion_id, is_correct) VALUES ( ${random()}, '${answer.Text}', ${q_id},${answer.Id == correct});\n`
+
+                });
+
+            })
+
+
+            mysqlOutput.textContent = sql;
+        });
+
+
+
+
+
+
+
+
+
+
+        document.getElementById("cp-btn").addEventListener("click", function () {
+            var output = document.getElementById("mysql-output");
+            var range = document.createRange();
+            range.selectNode(output);
+            window.getSelection().addRange(range);
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Copying text command was ' + msg);
+            } catch (err) {
+                console.log('Oops, unable to copy');
+            }
+            window.getSelection().removeAllRanges();
+        });
+
+    </script>
+</body>
+
+</html>

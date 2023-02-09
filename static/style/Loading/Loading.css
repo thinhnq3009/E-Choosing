@@ -1,0 +1,121 @@
+.Loading {
+  z-index: 99999;
+  width: 100vw !important;
+  height: 100vh !important;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.3764705882);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: wait;
+}
+.Loading .content {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(63, 0, 113, 0.3137254902);
+}
+.Loading .content::before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.4);
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  -webkit-animation: ring 2s linear infinite;
+          animation: ring 2s linear infinite;
+}
+.Loading .content::after {
+  position: absolute;
+  content: "Loading...";
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  font-weight: bold;
+  -webkit-animation: textEffect 1.5s ease-in-out infinite;
+          animation: textEffect 1.5s ease-in-out infinite;
+}
+
+@-webkit-keyframes ring {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 0 5px 3px #38e54d;
+  }
+  25% {
+    transform: rotate(90deg);
+    box-shadow: 0 5px 3px #72ffff;
+  }
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 0 5px 3px #ffff00;
+  }
+  75% {
+    transform: rotate(270deg);
+    box-shadow: 0 5px 3px #ffffd0;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 0 5px 3px #38e54d;
+  }
+}
+
+@keyframes ring {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 0 5px 3px #38e54d;
+  }
+  25% {
+    transform: rotate(90deg);
+    box-shadow: 0 5px 3px #72ffff;
+  }
+  50% {
+    transform: rotate(180deg);
+    box-shadow: 0 5px 3px #ffff00;
+  }
+  75% {
+    transform: rotate(270deg);
+    box-shadow: 0 5px 3px #ffffd0;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow: 0 5px 3px #38e54d;
+  }
+}
+@-webkit-keyframes textEffect {
+  0% {
+    letter-spacing: 0;
+    opacity: 0.9;
+  }
+  50% {
+    letter-spacing: 3px;
+    opacity: 0.3;
+  }
+  100% {
+    letter-spacing: 0;
+    opacity: 0.9;
+  }
+}
+@keyframes textEffect {
+  0% {
+    letter-spacing: 0;
+    opacity: 0.9;
+  }
+  50% {
+    letter-spacing: 3px;
+    opacity: 0.3;
+  }
+  100% {
+    letter-spacing: 0;
+    opacity: 0.9;
+  }
+}/*# sourceMappingURL=Loading.css.map */
