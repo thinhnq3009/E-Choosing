@@ -15,7 +15,7 @@
   top: 10%;
   transform: rotate(-63deg) scale(1.5);
   z-index: 0;
-  background-image: radial-gradient();
+  animation: fadeIn 1s ease;
 }
 .SignIn::before {
   content: "";
@@ -27,17 +27,7 @@
   left: 25%;
   bottom: 10%;
   transform: rotate(-63deg) scale(1.5);
-}
-.SignIn::before::after {
-  content: "";
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background-color: rgba(255, 255, 255, 0.0941176471);
-  border-radius: 10px;
-  left: 25%;
-  top: 5%;
-  transform: rotate(-63deg) scale(1.5);
+  animation: fadeIn 1s ease;
 }
 .SignIn .stamp {
   position: absolute;
@@ -47,6 +37,7 @@
   left: 5%;
   top: 5%;
   transform: rotate(10deg) scale(1.5);
+  animation: fadeIn 1s ease;
 }
 .SignIn .box {
   z-index: 9;

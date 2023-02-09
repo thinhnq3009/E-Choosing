@@ -2,18 +2,25 @@
 <div class="">
     <nav class="navbar navbar-expand-lg navbar-dark bg-linear-gradient NavigationBar sticky-top">
         <a class="navbar-brand d-flex align-items-center pl-xl-5" href="./index.html">
-            <img src="../static/image/light.png" width="50" height="50" class="d-inline-block align-top" alt="">
+            <img src="../static/image/light.png" width="50" height="50" class="d-inline-block align-top" alt="" />
             <span class="name-brand h4 ml-3 mb-0 font-weight-bold">E-Choosing</span>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="form-inline my-2 my-lg-0 flex-grow-1 justify-content-center test-code">
                 <div class="input-group">
-                    <input type="text" class="form-control " placeholder="Enter the join code ...">
+                    <input type="text" class="form-control" placeholder="Enter the join code ..." />
                     <div class="input-group-append">
                         <a class="btn btn-light" type="button" href="./doing.html">Start</a>
                     </div>
@@ -27,8 +34,15 @@
                     <a class="nav-link" href="./courses.html">Courses</a>
                 </li>
                 <li class="nav-item mb-2 mb-lg-0 dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                    <a
+                        class="nav-link"
+                        href="#"
+                        id="navbarDropdown"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
                         Pages
                     </a>
                     <div class="dropdown-menu dropdown-menu fadeInUp m-0" aria-labelledby="navbarDropdown">
@@ -38,20 +52,30 @@
                 </li>
 
                 <li ng-hide="$parent.userLogin" class="nav-item mb-2 mb-lg-0 active">
-                    <a class="nav-link" href="./login.html">Sign In</a>
+                    <a class="nav-link" href="#!/login">Sign In</a>
                 </li>
-                <li ng-hide="$parent.userLogin"  class="nav-item mb-2 mb-lg-0 active">
-                    <a class="nav-link" href="./signup.html">Sign Up</a>
+                <li ng-hide="$parent.userLogin" class="nav-item mb-2 mb-lg-0 active">
+                    <a class="nav-link" href="#!/signup">Sign Up</a>
                 </li>
             </ul>
 
             <!-- Phần Đã login -->
-            <ul ng-show="$parent.userLogin"  class="navbar-nav justify-content-end">
-                <li class="nav-item ml-4 px-3" id="avatar">
-                    <a class="avt-container" href="./user-info.html">
-                        <img class="avt_image" src="{{$parent.userLogin.avatar}}" alt="Avt">
+            <ul ng-show="$parent.userLogin" class="navbar-nav justify-content-end">
+                <li class="nav-item ml-4 px-3 dropdown" id="avatar">
+                    <a
+                        id="sub-avt-menu"
+                        class="avt-container "
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                    >
+                        <img class="avt_image" src="{{$parent.userLogin.avatar}}" alt="Avt" />
                         <span class="username ml-2">{{$parent.userLogin.fullname}}</span>
                         <i class="bi bi-caret-down-fill ml-1"></i>
+                        <div class="dropdown-menu animated fadeInUp" aria-labelledby="sub-avt-menu">
+                            <a class="dropdown-item" href="#!/user-info">Your profile</a>
+                            <a class="dropdown-item" href="#!/login" ng-click="handelLogout()">Logout</a>
+                        </div>
                     </a>
                 </li>
             </ul>

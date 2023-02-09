@@ -32,8 +32,7 @@
   transform: translateX(-50%);
 }
 .Course .card-course .action .btn {
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
+  animation-duration: 0.5s;
   box-shadow: none;
   border-radius: 0;
 }

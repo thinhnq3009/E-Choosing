@@ -4,6 +4,7 @@ angular.module("choosing-app").component("appLogin", {
         "$scope",
         "$http",
         "$rootScope",
+        
         ($scope, $http, $rootScope) => {
             $scope.handelShowPass = () => {
                 $scope.show = !$scope.show;

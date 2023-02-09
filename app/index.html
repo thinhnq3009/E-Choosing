@@ -28,6 +28,10 @@
         <script src="../lib/angularJS v1.8.2/angular-route.js"></script>
 
         <script src="./app.module.js"></script>
+        <script src="./app.config.js"></script>
+        <script src="./app.filter.js"></script>
+        <script src="./app.directive.js"></script>
+
         <script src="./components/app-header/app-header.component.js"></script>
         <script src="./components/app-footer/app-footer.component.js"></script>
         <script src="./components/app-login/app-login.component.js"></script>
@@ -39,7 +43,9 @@
     </head>
 
     <body>
+        <app-header ng-show="showHeader"></app-header>
         <div ng-view></div>
+        <app-footer ng-show="showFooter"></app-footer>
         <app-loading ng-show="isLoading"></app-loading>
     </body>
 </html>

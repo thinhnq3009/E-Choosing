@@ -42,9 +42,6 @@
 .NavigationBar .test-code .form-control[type=text]:not(:-moz-placeholder-shown) {
   text-transform: uppercase;
 }
-.NavigationBar .test-code .form-control[type=text]:not(:-ms-input-placeholder) {
-  text-transform: uppercase;
-}
 .NavigationBar .test-code .form-control[type=text]:not(:placeholder-shown) {
   text-transform: uppercase;
 }
