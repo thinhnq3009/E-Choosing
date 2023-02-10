@@ -12,6 +12,47 @@
         });
     };
 
+    const getHandler = ($scope) => {
+        return {
+            next: () => {
+                if (++$scope.doing == $scope.questions.length) {
+                    $scope.doing = 0;
+                }
+            },
+
+            prev: () => {
+                if (--$scope.doing == -1) {
+                    $scope.doing = $scope.questions.length - 1;
+                }
+            },
+
+            goto: ($index) => {
+                $scope.doing = $index;
+            },
+
+            note: () => {
+                let question = $scope.questions[$scope.doing]
+                question.note = !question.note || true;
+                console.log(question);
+            },
+
+            select: ($index, id) => {
+                const isMultipleChoice = $scope.questions[$index].isMultipleChoice;
+                let answers = $scope.questions[$index].answers;
+
+                answers.map((item) => item.id == id && (item.selected = !item.selected));
+
+                if (!isMultipleChoice) {
+                    answers.map((item) => item.id != id && (item.selected = false));
+                }
+
+                if (answers.some((item) => item.selected)) $scope.questions[$index].done = true;
+                else $scope.questions[$index].done = false;
+                console.log($scope.questions[$index]);
+            },
+        };
+    };
+
     angular.module("choosing-app").component("appDoing", {
         templateUrl: "components/app-doing/app-doing.template.html",
         controller: [
@@ -24,20 +65,21 @@
             ($scope, $rootScope, $routeParams, $http, $location, $interval) => {
                 $rootScope.isLoading = true;
                 $scope.code = $routeParams.code.toUpperCase();
+
                 let code = $scope.code;
 
+                // Get quiz by CODE
                 $http
                     .get($rootScope.apiUrl + "/quiz/", { params: { code } })
                     .then(({ data }) => {
                         $scope.quiz = data;
                         $scope.counter = data.duration;
 
-                        console.log("Get Question" + data.id);
+                        // Get question by QuizID
                         $http
                             .get($rootScope.apiUrl + "/questions/", { params: { id: data.id } })
                             .then(({ data }) => {
                                 processData(data);
-
                                 console.log(data);
                                 $scope.questions = data;
                             })
@@ -48,7 +90,7 @@
                                 $rootScope.isLoading = false;
                             });
 
-                        $scope.handelStart = () => {
+                        $scope.handelStart = function () {
                             let idTimeOut = $interval(() => {
                                 if (!--$scope.counter) {
                                     $interval.cancel(idTimeOut);
@@ -62,7 +104,11 @@
                             $scope.doing = 0;
                         };
                     })
-                    .catch((error) => console.log(error));
+                    .catch((error) => console.log(error))
+                    .finally(() => {
+                        $scope.handler = getHandler($scope);
+                        console.log($scope);
+                    });
             },
         ],
     });
