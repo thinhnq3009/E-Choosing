@@ -5,8 +5,16 @@
         // width: calc(100% + 32px);
         border-radius: 15px;
 
-        .question-container {
+        .timer {
+            font-size: 27px;
 
+            span {
+                font-size: 33px;
+                transition: 0.1s;
+            }
+        }
+
+        .question-container {
             display: flex;
             justify-content: start;
             align-items: flex-start;
@@ -26,40 +34,36 @@
                 color: white;
 
                 &.done {
-                    background-color: #0AA1DD;
+                    background-color: #0aa1dd;
                 }
 
                 &.correct {
-                    background-color: #39AEA9;
+                    background-color: #39aea9;
                 }
 
                 &.note {
-                    background-color: #F2CD5C;
+                    background-color: #f2cd5c;
                 }
 
                 &.incorrect {
-                    background-color: #F34573;
+                    background-color: #f34573;
                 }
 
                 &.doing {
-                    border: 0.1rem solid #5842b1bb ;
-                    box-shadow: 0 0 .5rem .1rem #5842b1 !important;
+                    border: 0.1rem solid #5842b1bb;
+                    box-shadow: 0 0 0.5rem 0.1rem #5842b1 !important;
                 }
 
                 &:hover {
-                    box-shadow: 0 0 .4rem rgba(0, 0, 0, 0.3);
+                    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.3);
                     transform: translateY(-2px) scale(1.01);
                 }
 
                 &:active {
                     transform: translateY(1px) scale(1.01);
                 }
-
-              
-
             }
         }
-
 
         button[type="submit"] {
             font-size: 20px;
@@ -73,6 +77,31 @@
     background-color: whitesmoke;
     border-radius: 15px;
 
+    .plastic {
+        min-height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: #ece2fe;
+        border-radius: 15px;
+        top: 0;
+        left: 0;
+
+        button {
+            font-size: 40px;
+            font-weight: 700;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            transition: all 0.3s !important;
+            &:hover {
+                transform: scale(1.04) translateY(-5px);
+            }
+        }
+    }
 
     .btn {
         font-size: 20px;
@@ -88,19 +117,17 @@
         }
     }
 
-
     .answer-container {
         counter-reset: item;
 
         input {
             display: none;
         }
-
     }
 
     .answer-item {
         padding: 15px 20px;
-        background-color: #BFACE2;
+        background-color: #bface2;
         border-radius: 20px;
         transition: 0.3s;
 
@@ -109,24 +136,53 @@
         }
 
         &.checked {
-            background-color: #F2CD5C;
+            background-color: #f2cd5c;
         }
 
         &.incorrect {
-            background-color: #F34573;
+            background-color: #f34573;
         }
 
         &.correct {
-            background-color: #39AEA9;
+            background-color: #39aea9;
         }
 
         &:hover {
-            box-shadow: 0 0 .5rem #0000007c;
+            box-shadow: 0 0 0.5rem #0000007c;
         }
 
         .choose-tag {
-
             margin-right: 1rem;
+            margin-left: 35px;
+            position: relative;
+            transition: all 0.2s;
+            &.checked {
+                &::before {
+                    content: "\f270" !important;
+                }
+            }
+            
+            &::before {
+                content: "\f28a";
+                font-size: 20px;
+                font-family: bootstrap-icons !important;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: -30px;
+            }
+
+            &.multiple {
+                &.checked {
+                    &::before {
+                        content: "\f271" !important;
+                    }
+                }
+
+                &::before {
+                    content: "\f584" !important;
+                }
+            }
 
             &:after {
                 content: counter(item, upper-alpha) ". ";

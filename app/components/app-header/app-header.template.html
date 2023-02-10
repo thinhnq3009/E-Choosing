@@ -1,7 +1,7 @@
 <!-- Navigation -->
 <div class="">
     <nav class="navbar navbar-expand-lg navbar-dark bg-linear-gradient NavigationBar sticky-top">
-        <a class="navbar-brand d-flex align-items-center pl-xl-5" href="./index.html">
+        <a class="navbar-brand d-flex align-items-center pl-xl-5" href="#!/">
             <img src="../static/image/light.png" width="50" height="50" class="d-inline-block align-top" alt="" />
             <span class="name-brand h4 ml-3 mb-0 font-weight-bold">E-Choosing</span>
         </a>
@@ -20,15 +20,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <form class="form-inline my-2 my-lg-0 flex-grow-1 justify-content-center test-code">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Enter the join code ..." />
+                    <input ng-model="code" type="text" class="form-control" placeholder="Enter the join code ..." />
                     <div class="input-group-append">
-                        <a class="btn btn-light" type="button" href="./doing.html">Start</a>
+                        <a class="btn btn-light" type="button" href="#!/doing/{{code}}">Start</a>
                     </div>
                 </div>
             </form>
             <ul class="navbar-nav flex-grow-1 justify-content-end">
                 <li class="nav-item mb-2 mb-lg-0">
-                    <a class="nav-link" href="./index.html">Home</a>
+                    <a class="nav-link" href="#!/">Home</a>
                 </li>
                 <li class="nav-item mb-2 mb-lg-0">
                     <a class="nav-link" href="./courses.html">Courses</a>

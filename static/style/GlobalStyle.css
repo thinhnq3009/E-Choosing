@@ -142,3 +142,7 @@ a:hover {
 .btn.rounded {
     border-radius: 999px !important;
 }
+
+.h-100 {
+    height: 100% !important;
+}

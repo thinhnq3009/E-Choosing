@@ -4,8 +4,8 @@ angular.module("choosing-app").component("appLogin", {
         "$scope",
         "$http",
         "$rootScope",
-        
-        ($scope, $http, $rootScope) => {
+        "$location",
+        ($scope, $http, $rootScope, $location) => {
             $scope.handelShowPass = () => {
                 $scope.show = !$scope.show;
             };
@@ -28,6 +28,8 @@ angular.module("choosing-app").component("appLogin", {
                             $rootScope.userLogin
 
                             console.log($rootScope.userLogin);
+
+                            $location.url("/user-info")
                         } else {
                             $scope.errorMessage = "Login failed! Please try again";
                         }
