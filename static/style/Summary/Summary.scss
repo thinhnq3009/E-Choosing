@@ -1,0 +1,230 @@
+.Summary {
+    .content {
+        border-radius: 20px;
+
+        .info {
+            padding: 0.9rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0015ff20;
+            border-radius: 20px;
+            .avatar {
+                max-width: 70px;
+                border-radius: 50%;
+                margin-right: 20px;
+            }
+        }
+
+        .info-quiz {
+            display: flex;
+            align-items: center;
+            padding: 0.9rem 1.5rem;
+            background-color: #d900ff20;
+            border-radius: 20px;
+        }
+
+        .process-bar {
+            margin: auto;
+            margin-top: 2rem;
+            height: 15px;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            .line {
+                background-color: #ff5f9e;
+                height: 100%;
+                width: 100%;
+                border-radius: 30px;
+                box-shadow: 0 0 5px #00000090;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    height: 100%;
+                    width: 40%;
+                    background-color: #ade792;
+                    border-radius: 30px;
+                    left: 0;
+                }
+
+                &::before {
+                    content: "40%";
+                    z-index: 9;
+                    position: absolute;
+                    padding: 5px 9px;
+                    border-radius: 15px;
+                    background-color: #ffe7cc;
+                    top: 50%;
+                    left: 40%;
+                    transform: translateY(-50%) translateX(-50%);
+                    font-weight: 500;
+                    box-shadow: 0 0 10px #00000090;
+                }
+            }
+        }
+
+        .description-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+
+            .item {
+                padding-top: 1.5rem;
+                padding-bottom: 1.5rem;
+                // margin-left: 1rem;
+                // margin-right: 1rem;
+                margin-bottom: 1.5rem;
+                // width: calc(33.33% - 2rem);
+                position: relative;
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 1px 1px 8px #00000088;
+                transition: transform 0.4s;
+
+                &:hover {
+                    transform: scale(1.03);
+                }
+
+                &.rank {
+                    background-color: #5bc0f8;
+                }
+                &.score {
+                    background-color: #f2cd5c;
+                }
+                &.correct {
+                    background-color: #1fab89;
+                }
+                &.correct {
+                    background-color: #42e6a4;
+                }
+                &.incorrect {
+                    background-color: #ff597b;
+                }
+                &.time {
+                    background-color: #ff7b54;
+                }
+
+                .bi {
+                    position: absolute;
+                    bottom: -23%;
+                    left: -10px;
+                    color: #7e7e7e40;
+                    font-size: 80px;
+                    transform: rotate(-6deg);
+                }
+
+                .score {
+                    font-size: 29px;
+                    font-weight: 600;
+                    z-index: 99;
+                }
+
+                .title {
+                    font-size: 17px;
+                    z-index: 99;
+                }
+            }
+        }
+
+        .questions-container {
+            user-select: none;
+            .item {
+                padding: 0.8rem 1.2rem;
+                background-color: #3ffcff44;
+                border-radius: 14px;
+                counter-reset: item;
+                margin-bottom: 1rem;
+                box-shadow: 1px 1px 5px #00000044;
+
+                &.correct {
+                    background-color: #5fff6f44;
+                }
+
+                &.incorrect {
+                    background-color: #ff5f9e44;
+                }
+
+                .answer {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                    padding: 0.5rem 1.2rem;
+                    margin-bottom: 1rem;
+                    background-color: #ffffff96;
+                    border-radius: 20px;
+                    box-shadow: 1px 1px 5px #00000050;
+                    transition: 0.3s;
+                    &:hover {
+                        transform: scale(1.01);
+                        box-shadow: 1px 1px 10px #00000080;
+                    }
+
+                    .choose-tag {
+                        margin-right: 1rem;
+                        margin-left: 35px;
+                        position: relative;
+                        transition: all 0.2s;
+                        &::before {
+                            content: "\f28a";
+                            font-size: 20px;
+                            font-family: bootstrap-icons !important;
+                            position: absolute;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            left: -30px;
+                        }
+
+                        &::after {
+                            content: counter(item, upper-alpha) ". ";
+                            counter-increment: item;
+                            font-size: 18px;
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                .answer {
+                    &.correct {
+                        background-color: #00FFAB;
+                    }
+
+                    &.correct,
+                    &.checked {
+                        .choose-tag::before {
+                            content: "\f270";
+                        }
+                    }
+
+                    &.incorrect {
+                        background-color: #FF5F9E;
+                        .choose-tag::before {
+                            content: "\f623";
+                        }
+                    }
+                }
+
+                &.multiple {
+                    .answer {
+                        .choose-tag::before {
+                            content: "\f584" !important;
+                        }
+
+                        &.correct,
+                        &.checked {
+                            .choose-tag::before {
+                                content: "\f271" !important;
+                            }
+                        }
+                        &.incorrect {
+                            .choose-tag::before {
+                                content: "\f629" !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

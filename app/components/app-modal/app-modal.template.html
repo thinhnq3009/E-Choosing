@@ -1,0 +1,33 @@
+<!-- Modal -->
+<div
+    class="modal fade UserInfo"
+    id="{{$ctrl.idModal}}"
+    tabindex="-1"
+    role="dialog"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header pb-1">
+                <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">{{$ctrl.title || "Dialog"}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="bi bi-x-circle"></i></span>
+                </button>
+            </div>
+            <div class="modal-body" id="body">{{$ctrl.body || render()}}</div>
+            <div class="modal-footer">
+                <button type="button" class="btn rounded px-4 btn-danger" data-dismiss="modal">Cancel</button>
+                <button
+                    ng-repeat="button in $ctrl.buttons"
+                    ng-class="{[button.class]: button.class}"
+                    ng-click="button.evt() "
+                    type="button"
+                    class="btn rounded px-4"
+                >
+                    {{button.text || "Button"}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->

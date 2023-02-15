@@ -7,19 +7,19 @@
             // $locationProvider.html5Mode(true);
             $routeProvider
                 .when("/", {
-                    templateUrl: "pages/login.html",
+                    templateUrl: "pages/app-login/app-login.template.html",
                 })
                 .when("/login", {
-                    templateUrl: "pages/login.html",
+                    templateUrl: "pages/app-login/app-login.template.html",
                 })
                 .when("/signup", {
-                    templateUrl: "pages/signup.html",
+                    templateUrl: "pages/app-signup/app-signup.template.html",
                 })
                 .when("/user-info", {
-                    templateUrl: "pages/user-info.html",
+                    templateUrl: "pages/app-info/app-info.template.html",
                 })
                 .when("/doing/:code", {
-                    templateUrl: "pages/doing.html",
+                    templateUrl: "pages/app-doing/app-doing.template.html",
                 });
         },
     ]);
