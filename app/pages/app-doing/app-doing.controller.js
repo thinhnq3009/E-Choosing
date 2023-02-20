@@ -4,22 +4,31 @@
      * @param data
      */
     const processData = (data) => {
-        data.map((item) => {
+        return data.filter((item, index) => {
             let counter = 0;
             item.isMultipleChoice = false;
             item.answers.map((answer) => {
-                answer.is_correct == 1 && counter++;
-                if (counter === 2) {
-                    item.isMultipleChoice = true;
+                if (answer.is_correct == 1) {
+                    counter++;
+                    if (counter === 2) item.isMultipleChoice = true;
                 }
             });
+            return index < 6;
         });
     };
 
+    /**
+     *  Initialize handel function
+     * @param  - the scope of the controller
+     * @returns A function that returns an object.
+     */
     const getHandler = ($scope) => {
         const update = () => {
             sessionStorage.setItem("doing", JSON.stringify($scope.questions));
-            $scope.complete = $scope.questions.reduce((value, item) => (item.done ? ++value : value), 0);
+            $scope.complete = $scope.questions.reduce(
+                (value, item) => (item.done ? ++value : value),
+                0
+            );
         };
 
         return {
@@ -72,17 +81,65 @@
         };
     };
 
-    const initCountDown = ($interval, $scope) => {
-        return () => {
-            let idTimeOut = $interval(() => {
-                if (!--$scope.counter) {
-                    $interval.cancel(idTimeOut);
-                } else {
-                    var minutes = Math.floor($scope.counter / 60);
-                    var seconds = $scope.counter - minutes * 60;
-                    $scope.remaining = ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+    /**
+     * Calculate the score based on the array of questions
+     * @param questions - [{
+     * @returns { userMarks, maxMarks }
+     */
+    const calculateMarks = (questions) => {
+        let maxMarks = 0;
+        let userMarks = 0;
+        questions.forEach((item) => {
+            item.answers.forEach((answer) => {
+                if (answer.selected && answer.is_correct === "1") {
+                    userMarks += 1;
                 }
+                maxMarks += answer.is_correct === "1" ? 1 : 0;
+            });
+        });
+        console.log({ userMarks, maxMarks });
+        return { userMarks, maxMarks };
+    };
+
+    function handelComplete($scope, completeQuiz) {
+        return () => {
+            console.log($scope.completeQuiz);
+            const { quiz, questions } = $scope;
+            calculateMarks(questions);
+            completeQuiz.completeQuiz(quiz, questions);
+        };
+    }
+
+    const initCountDown = ($interval, $scope, $http, $rootScope) => {
+        return () => {
+            const params = {
+                submission_id: $scope.quiz.submission_id,
+            };
+
+            $http.put($rootScope.apiUrl + "/submission/", { params }).then(({ data }) => {
+                let idTimeOut = $interval(() => {
+                    if (!--$scope.counter) {
+                        $interval.cancel(idTimeOut);
+                    } else {
+                        var minutes = Math.floor($scope.counter / 60);
+                        var seconds = $scope.counter - minutes * 60;
+                        $scope.remaining =
+                            ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+                    }
+                }, 1000);
+                $scope.doing = 0;
+            });
+
+            let idTimeOut = $interval(() => {
+                var minutes = Math.floor($scope.counter / 60);
+                var seconds = $scope.counter - minutes * 60;
+                $scope.remaining = ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+
+                if (!$scope.counter) {
+                    $interval.cancel(idTimeOut);
+                } 
             }, 1000);
+
             $scope.doing = 0;
         };
     };
@@ -93,28 +150,49 @@
         "$routeParams",
         "$http",
         "$interval",
+        "$location",
         "submissionQuiz",
-        ($scope, $rootScope, $routeParams, $http, $interval, submissionQuiz) => {
+        "completeQuiz",
+        (
+            $scope,
+            $rootScope,
+            $routeParams,
+            $http,
+            $interval,
+            $location,
+            submissionQuiz,
+            completeQuiz
+        ) => {
             $rootScope.isLoading = true;
             $scope.code = $routeParams.code.toUpperCase();
             $scope.complete = 0;
             let code = $scope.code;
 
-            submissionQuiz.submitQuiz();
+            // Buttons will render in the Modal window  when submitting
+            $scope.modalButtons = [
+                {
+                    className: "btn-success",
+                    event: handelComplete($scope, completeQuiz),
+                    text: "Submit",
+                },
+            ];
 
-            // Get quiz by CODE
-            $http
-                .get($rootScope.apiUrl + "/quiz/", { params: { code } })
-                .then(({ data }) => {
+            submissionQuiz
+                .submitQuiz(code)
+                .then((data) => {
+                    if (data.error) {
+                        $location.url("/404error");
+                    }
+
                     $scope.quiz = data;
                     $scope.counter = data.duration;
                     // Get question by QuizID
-
                     $http
                         .get($rootScope.apiUrl + "/questions/", { params: { id: data.id } })
                         .then(({ data }) => {
-                            processData(data);
+                            data = processData(data);
                             $scope.questions = data;
+                            console.log($scope);
                         })
                         .catch((error) => {
                             // Handel the error
@@ -123,13 +201,46 @@
                             $rootScope.isLoading = false;
                         });
 
-                    $scope.handelStart = initCountDown($interval, $scope);
-                })
-                .catch((error) => console.log(error))
-                .finally(() => {
+                    $scope.handelStart = initCountDown($interval, $scope, $http, $rootScope);
                     $scope.handler = getHandler($scope);
-                    console.log($scope);
-                });
+                    $scope.handelSubmit = handelSubmit($scope);
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+                .finally(() => ($rootScope.isLoading = false));
+
+            // // Get quiz by CODE
+            // $http
+            //     .get($rootScope.apiUrl + "/quiz/", { params: { code } })
+            //     .then(({ data }) => {
+            //         if (data.error) {
+            //             $location.url("/404error");
+            //         }
+
+            //         $scope.quiz = data;
+            //         $scope.counter = data.duration;
+            //         // Get question by QuizID
+
+            //         $http
+            //             .get($rootScope.apiUrl + "/questions/", { params: { id: data.id } })
+            //             .then(({ data }) => {
+            //                 processData(data);
+            //                 $scope.questions = data;
+            //             })
+            //             .catch((error) => {
+            //                 // Handel the error
+            //             })
+            //             .finally(() => {
+            //                 $rootScope.isLoading = false;
+            //             });
+
+            //         $scope.handelStart = initCountDown($interval, $scope);
+            //     })
+            //     .catch((error) => console.log(error))
+            //     .finally(() => {
+            //         $scope.handler = getHandler($scope);
+            //     });
         },
     ]);
 })();

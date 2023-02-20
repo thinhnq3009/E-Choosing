@@ -20,6 +20,13 @@
                 })
                 .when("/doing/:code", {
                     templateUrl: "pages/app-doing/app-doing.template.html",
+                    // controller: "doingController",
+                })
+                .when("/summary", {
+                    templateUrl: "pages/app-summary/app-summary.template.html",
+                })
+                .when("/404error", {
+                    templateUrl: "pages/app-error/404-page.html",
                 });
         },
     ]);

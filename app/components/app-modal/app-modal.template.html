@@ -19,8 +19,8 @@
                 <button type="button" class="btn rounded px-4 btn-danger" data-dismiss="modal">Cancel</button>
                 <button
                     ng-repeat="button in $ctrl.buttons"
-                    ng-class="{[button.class]: button.class}"
-                    ng-click="button.evt() "
+                    ng-class="{[button.className]: button.className}"
+                    ng-click="button.event()"
                     type="button"
                     class="btn rounded px-4"
                 >

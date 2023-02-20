@@ -13,7 +13,7 @@
     "use strict";
 
     angular.module("choosing-app").component("appModal", {
-        templateUrl: "pages/app-modal/app-modal.template.html",
+        templateUrl: "components/app-modal/app-modal.template.html",
         bindings: {
             title: "@",
             body: "@",
@@ -26,8 +26,7 @@
             "$rootScope",
             "$element",
             ($scope, $rootScope, $element) => {
-
-                console.log($scope)
+                console.log($scope);
 
                 $scope.render = () => {
                     if (!$rootScope.modalTargetElements) {
@@ -36,7 +35,9 @@
                         );
                         return "Don't have modal target elements. ";
                     }
+                    // Selects element to be rendered
                     const e = $rootScope.modalTargetElements.find((item) => item.key == $scope.$ctrl.target);
+                    // Append element to be rendered
                     $element[0].querySelector("#body").append(e.element[0]);
                     return "";
                 };

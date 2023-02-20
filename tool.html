@@ -112,13 +112,13 @@
 
                 const q_id = random();
 
-                sql += `\nINSERT INTO questions (id, quizz_id, content, marks) VALUES (${q_id}, ${quiz_id.value}, '${item.Text}', 25); \n`
+                sql += `\nINSERT INTO questions (id, quizz_id, content, marks) VALUES (${q_id}, ${quiz_id.value}, '${item.Text.replace(/'/g, "\"")}', 25); \n`
 
                 correct = item.AnswerId
 
                 item.Answers.map(answer => {
 
-                    sql += `     INSERT INTO answers(id, content, quesion_id, is_correct) VALUES ( ${random()}, '${answer.Text}', ${q_id},${answer.Id == correct});\n`
+                    sql += `     INSERT INTO answers(id, content, quesion_id, is_correct) VALUES ( ${random()}, '${answer.Text.replace(/'/g, "\"")}', ${q_id},${answer.Id == correct});\n`
 
                 });
 

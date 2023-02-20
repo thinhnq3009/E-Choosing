@@ -38,29 +38,28 @@
         const link = ($scope, $element, $attrs, controller) => {
             $rootScope.modalTargetElements = $rootScope.modalTargetElements || [];
             $rootScope.modalTargetElements = [...$rootScope.modalTargetElements, { key: $scope.key, element: $element.detach() }];
-            console.log($rootScope);
         };
-        return ({
+        return {
             link: link,
             scope: {
                 key: "@modalBodyTarget",
             },
             restrict: "A",
-        });
+        };
     }
 
     function modalIdTarget($rootScope) {
         const link = ($scope, $element, $attrs, controller) => {
-             $element[0].setAttribute("data-toggle" , "modal")
-             $element[0].setAttribute("data-target" , "#" + $scope.key)
+            $element[0].setAttribute("data-toggle", "modal");
+            $element[0].setAttribute("data-target", "#" + $scope.key);
         };
 
-        return ({
+        return {
             link: link,
             scope: {
                 key: "@modalIdTarget",
             },
             restrict: "A",
-        });
+        };
     }
 })();

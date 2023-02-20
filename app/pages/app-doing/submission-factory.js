@@ -8,7 +8,20 @@
     function submissionQuiz($rootScope, $http) {
         var factory = {};
         factory.submitQuiz = function (code) {
-            console.log(code);
+            const userId = $rootScope.userLogin ? $rootScope.userLogin.id : sessionStorage.getItem("userId") || -1;
+            // Sử dụng Promise để đợi kết quả trả về từ API
+            return new Promise((resolve, reject) => {
+                $http
+                    .post($rootScope.apiUrl + "/submission/", { params: { code, userId } })
+                    .then(({ data }) => {
+                        // Nếu thành công, trả về dữ liệu được trả về từ API
+                        resolve(data);
+                    })
+                    .catch((error) => {
+                        // Nếu có lỗi, trả về thông báo lỗi
+                        reject(error);
+                    });
+            });
         };
         return factory;
     }

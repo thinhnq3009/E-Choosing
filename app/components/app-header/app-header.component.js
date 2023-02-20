@@ -7,6 +7,7 @@ angular.module("choosing-app").component("appHeader", {
             $scope.handelLogout = () => {
                 $rootScope.userLogin = null;
                 sessionStorage.removeItem("token");
+                sessionStorage.removeItem("userId");
             };
         },
     ],
