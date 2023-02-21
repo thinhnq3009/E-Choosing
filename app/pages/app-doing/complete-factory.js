@@ -1,12 +1,34 @@
 (function () {
     "use strict";
 
+    /**
+     * It takes a  object, a  object, and a data object, and returns a promise that
+     * resolves to the result of a POST request to the URL stored in .apiUrl + "save_answer"
+     * with the data object as the body of the request.
+     * @param  - Angular's  service
+     * @param  - This is the global scope of the application.
+     * @param data - {
+     * @returns A promise.
+     */
     const saveAnswer = ($http, $rootScope, data) => {
+        // return Promise.resolve(data).then((data) => console.log(data));
+        return $http.post($rootScope.apiUrl + "/save_answer/", { params: { ...data } });
+    };
 
+    const pushAnswer = ($http, $rootScope, data) => {
+        if (data.length === 0) {
+            // Handel Complete when push all answers
+            $rootScope.isLoading = false;
+            return true;
+        }
 
-
-        return $http.post($rootScope.apiUrl + "save_answer", {param : {...data}})
-
+        Promise.resolve(data[0]).then((item) => {
+            saveAnswer($http, $rootScope, item)
+                .catch((error) => {
+                    errorLog.push({ error, data });
+                })
+                .finally(pushAnswer($http, $rootScope, data.splice(1)));
+        });
     };
 
     /**
@@ -23,14 +45,11 @@
             if (!question.done) return;
             question.answers.forEach((answer) => {
                 if (answer.selected) {
-                    clearData = [
-                        ...clearData,
-                        {
-                            submission_id,
-                            question_id: question.id,
-                            answer_id: answer.id,
-                        },
-                    ];
+                    clearData.push({
+                        submission_id,
+                        question_id: question.id,
+                        answer_id: answer.id,
+                    });
                 }
             });
         });
@@ -56,7 +75,10 @@
             }
 
             const data = processQuestion(quiz.submission_id, questions);
-            console.log(data);
+
+            $rootScope.isLoading = true;
+            return Promise.resolve(pushAnswer($http, $rootScope, data));
+            // console.log(data);
         };
 
         return factory;

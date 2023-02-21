@@ -101,12 +101,14 @@
         return { userMarks, maxMarks };
     };
 
-    function handelComplete($scope, completeQuiz) {
+    function handelComplete($scope, $location, completeQuiz) {
         return () => {
             console.log($scope.completeQuiz);
             const { quiz, questions } = $scope;
             calculateMarks(questions);
-            completeQuiz.completeQuiz(quiz, questions);
+            completeQuiz.completeQuiz(quiz, questions).then(
+                $location.url("/summary")
+            )
         };
     }
 
@@ -172,7 +174,7 @@
             $scope.modalButtons = [
                 {
                     className: "btn-success",
-                    event: handelComplete($scope, completeQuiz),
+                    event: handelComplete($scope, $location, completeQuiz),
                     text: "Submit",
                 },
             ];

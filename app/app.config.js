@@ -24,6 +24,7 @@
                 })
                 .when("/summary", {
                     templateUrl: "pages/app-summary/app-summary.template.html",
+                    controller: "summaryController"
                 })
                 .when("/404error", {
                     templateUrl: "pages/app-error/404-page.html",
