@@ -7,196 +7,98 @@
 
                     <div class="row px-5 justify-content-around">
                         <div class="col-md-5 mb-3 info">
-                            <img class="avatar" src="static/image/avatar.jpg" alt="" />
+                            <img class="avatar" src="{{$parent.userLogin.avatar}}" alt="" />
                             <div class="name text-left">
-                                <h4 class="font-weight-bolder">Nguyễn Quốc Thịnh</h4>
-                                <h6>Class: IT17302</h6>
+                                <h4 class="font-weight-bolder">{{$parent.userLogin.fullname}}</h4>
+                                <h6>Class: {{$parent.userLogin.class}}</h6>
                             </div>
                         </div>
                         <div class="col-md-5 mb-3 info-quiz">
                             <div class="name text-left">
-                                <h4 class="font-weight-bolder">Java cơ bản</h4>
-                                <h6>Quantity: 20 questions</h6>
-                                <h6>Time: 20 minute</h6>
+                                <h4 class="font-weight-bolder">{{quiz.name}}</h4>
+                                <h6>Quantity: {{questions.length}} questions</h6>
+                                <h6>Time: {{quiz.duration | toTime}}</h6>
                             </div>
                         </div>
                     </div>
 
                     <div class="process-bar mb-5">
-                        <div class="line" data-ratio="50"></div>
+                        <div class="line">
+                            <span
+                                data-ratio="{{info.percent}}"
+                                ng-style="{'width': info.percent}"
+                            ></span>
+                        </div>
                     </div>
 
                     <div class="description-container row px-3">
                         <div class="col-md-4">
                             <div class="item mx-auto rank">
                                 <i class="bi bi-award-fill"></i>
-                                <div class="score">3/12</div>
+                                <div class="score">1/10</div>
                                 <span class="title">Rank</span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="item mx-auto score">
                                 <i class="bi bi-clipboard2-pulse-fill"></i>
-                                <div class="score">1203</div>
+                                <div class="score">{{info.score | number: 0}}</div>
                                 <span class="title">Score</span>
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="item mx-auto correct">
-                                <i class="bi bi-alarm-fill"></i>
-                                <div class="score">10</div>
-                                <span class="title">Correct</span>
+                            <div class="item mx-auto unselected">
+                                <i class="bi bi-patch-minus-fill"></i>
+                                <div class="score">{{info.unselected}}</div>
+                                <span class="title">Unselect</span>
                             </div>
                         </div>
 
                         <div class="col-md-4">
                             <div class="item mx-auto correct">
                                 <i class="bi bi-calendar-check-fill"></i>
-                                <div class="score">10</div>
+                                <div class="score">{{info.correct}}</div>
                                 <span class="title">Correct</span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="item mx-auto incorrect">
                                 <i class="bi bi-calendar-x-fill"></i>
-                                <div class="score">10</div>
+                                <div class="score">{{info.incorrect}}</div>
                                 <span class="title">Incorrect</span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="item mx-auto time">
                                 <i class="bi bi-clock-fill"></i>
-                                <div class="score">3s</div>
+                                <div class="score">{{info.timePerQuestion | number :3}}s</div>
                                 <span class="title">Time/question</span>
                             </div>
                         </div>
                     </div>
 
                     <div class="questions-container text-left">
-                        <h1 class="font-weight-bold mb-4 text-center mt-5 mb-3">Review Questions</h1>
+                        <h1 class="font-weight-bold mb-4 text-center mt-5 mb-3">
+                            Review Questions
+                        </h1>
 
-                        <div class="item">
+                        <div
+                            class="item"
+                            ng-class="{incorrect: question.is_correct === false, correct: question.is_correct, multiple: question.isMultipleChoice}"
+                            ng-repeat="question in questions"
+                        >
                             <div class="question mb-3">
-                                <span class="font-weight-bolder">Question 1: </span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod aliquid, quo libero
-                                reprehenderit quis autem nobis corporis nihil dignissimos!
+                                <span class="font-weight-bolder">Question {{$index + 1}}: </span>
+                                {{question.content}}
                             </div>
                             <div class="answers-container">
-                                <div class="answer">
+                                <div
+                                    class="answer"
+                                    ng-class="{correct: answer.is_correct === true,checked: answer.selected, incorrect: answer.selected && !answer.is_correct}"
+                                    ng-repeat="answer in question.answers"
+                                >
                                     <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, veritatis?
-                                </div>
-                                <div class="answer">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                                <div class="answer">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                                <div class="answer">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item incorrect">
-                            <div class="question mb-3">
-                                <span class="font-weight-bolder">Question 2: </span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod aliquid, quo libero
-                                reprehenderit quis autem nobis corporis nihil dignissimos!
-                            </div>
-                            <div class="answers-container">
-                                <div class="answer">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, veritatis?
-                                </div>
-                                <div class="answer checked">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                                <div class="answer incorrect">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                                <div class="answer correct">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item correct">
-                            <div class="question mb-3">
-                                <span class="font-weight-bolder">Question 3: </span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod aliquid, quo libero
-                                reprehenderit quis autem nobis corporis nihil dignissimos!
-                            </div>
-                            <div class="answers-container">
-                                <div class="answer incorrect">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, veritatis?
-                                </div>
-                                <div class="answer checked">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                                <div class="answer correct">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                                <div class="answer">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item multiple correct">
-                            <div class="question mb-3">
-                                <span class="font-weight-bolder">Question 4: </span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod aliquid, quo libero
-                                reprehenderit quis autem nobis corporis nihil dignissimos!
-                            </div>
-                            <div class="answers-container">
-                                <div class="answer checked">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, veritatis?
-                                </div>
-                                <div class="answer correct">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                                <div class="answer">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                                <div class="answer">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item multiple incorrect">
-                            <div class="question mb-3">
-                                <span class="font-weight-bolder">Question 5: </span>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod aliquid, quo libero
-                                reprehenderit quis autem nobis corporis nihil dignissimos!
-                            </div>
-                            <div class="answers-container">
-                                <div class="answer checked incorrect">
-                                    <span class="choose-tag"></span>
-                                    Sai Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, veritatis?
-                                </div>
-                                <div class="answer correct">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                                <div class="answer">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
-                                </div>
-                                <div class="answer">
-                                    <span class="choose-tag"></span>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing.
+                                    {{answer.content}}
                                 </div>
                             </div>
                         </div>

@@ -58,9 +58,9 @@
 
     angular.module("choosing-app").factory("completeQuiz", completeQuiz);
 
-    completeQuiz.$inject = ["$rootScope", "$http"];
+    completeQuiz.$inject = ["$rootScope", "$http", "$session"];
     /** @ngInject */
-    function completeQuiz($rootScope, $http) {
+    function completeQuiz($rootScope, $http, $session) {
         const factory = {};
 
         factory.completeQuiz = (quiz, questions) => {
@@ -68,7 +68,6 @@
                 console.error("Can't complete quiz. Because quiz is not");
                 return null;
             }
-
             if (!questions) {
                 console.error("Can't complete quiz. Because no questions specified");
                 return null;
@@ -76,9 +75,20 @@
 
             const data = processQuestion(quiz.submission_id, questions);
 
+            $session.set("data_complete", { quiz, questions });
+
             $rootScope.isLoading = true;
-            return Promise.resolve(pushAnswer($http, $rootScope, data));
-            // console.log(data);
+
+            return $http
+                .put($rootScope.apiUrl + "/end_quiz/", {
+                    params: { submission_id: quiz.submission_id },
+                })
+                .then((response) => {
+                    const { start_time, end_time } = response.data;
+                    const duration = quiz.duration;
+                    $session.set("time_complete", { start_time, end_time, duration });
+                    Promise.resolve(pushAnswer($http, $rootScope, data));
+                });
         };
 
         return factory;

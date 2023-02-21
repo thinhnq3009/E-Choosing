@@ -8,7 +8,9 @@
     function submissionQuiz($rootScope, $http) {
         var factory = {};
         factory.submitQuiz = function (code) {
-            const userId = $rootScope.userLogin ? $rootScope.userLogin.id : sessionStorage.getItem("userId") || -1;
+            const userId = $rootScope.userLogin
+                ? $rootScope.userLogin.id
+                : sessionStorage.getItem("userId") || -1;
             // Sử dụng Promise để đợi kết quả trả về từ API
             return new Promise((resolve, reject) => {
                 $http

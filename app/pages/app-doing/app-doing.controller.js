@@ -86,29 +86,16 @@
      * @param questions - [{
      * @returns { userMarks, maxMarks }
      */
-    const calculateMarks = (questions) => {
-        let maxMarks = 0;
-        let userMarks = 0;
-        questions.forEach((item) => {
-            item.answers.forEach((answer) => {
-                if (answer.selected && answer.is_correct === "1") {
-                    userMarks += 1;
-                }
-                maxMarks += answer.is_correct === "1" ? 1 : 0;
-            });
-        });
-        console.log({ userMarks, maxMarks });
-        return { userMarks, maxMarks };
-    };
+    
 
-    function handelComplete($scope, $location, completeQuiz) {
+    function handelComplete($scope, $location, $anchorScroll, completeQuiz) {
         return () => {
             console.log($scope.completeQuiz);
             const { quiz, questions } = $scope;
-            calculateMarks(questions);
-            completeQuiz.completeQuiz(quiz, questions).then(
+            completeQuiz.completeQuiz(quiz, questions).then(() => {
                 $location.url("/summary")
-            )
+                $anchorScroll("header")
+            });
         };
     }
 
@@ -139,7 +126,7 @@
 
                 if (!$scope.counter) {
                     $interval.cancel(idTimeOut);
-                } 
+                }
             }, 1000);
 
             $scope.doing = 0;
@@ -153,6 +140,7 @@
         "$http",
         "$interval",
         "$location",
+        "$anchorScroll",
         "submissionQuiz",
         "completeQuiz",
         (
@@ -162,6 +150,7 @@
             $http,
             $interval,
             $location,
+            $anchorScroll,
             submissionQuiz,
             completeQuiz
         ) => {
@@ -174,7 +163,7 @@
             $scope.modalButtons = [
                 {
                     className: "btn-success",
-                    event: handelComplete($scope, $location, completeQuiz),
+                    event: handelComplete($scope, $location, $anchorScroll, completeQuiz),
                     text: "Submit",
                 },
             ];

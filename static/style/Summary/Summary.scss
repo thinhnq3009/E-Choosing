@@ -32,32 +32,33 @@
             max-width: 800px;
             position: relative;
             .line {
+                $data-ratio: 50%;
                 background-color: #ff5f9e;
                 height: 100%;
                 width: 100%;
                 border-radius: 30px;
                 box-shadow: 0 0 5px #00000090;
 
-                &::after {
+                span {
                     content: "";
                     position: absolute;
                     height: 100%;
-                    width: 40%;
                     background-color: #ade792;
                     border-radius: 30px;
                     left: 0;
+                    
                 }
 
-                &::before {
-                    content: "40%";
+                span::before {
+                    content: attr(data-ratio);
                     z-index: 9;
                     position: absolute;
                     padding: 5px 9px;
                     border-radius: 15px;
                     background-color: #ffe7cc;
                     top: 50%;
-                    left: 40%;
-                    transform: translateY(-50%) translateX(-50%);
+                    right: 0%;
+                    transform: translateY(-50%) translateX(50%);
                     font-weight: 500;
                     box-shadow: 0 0 10px #00000090;
                 }
@@ -93,14 +94,14 @@
                 &.score {
                     background-color: #f2cd5c;
                 }
-                &.correct {
-                    background-color: #1fab89;
+                &.unselected {
+                    background-color: #ec76f2;
                 }
                 &.correct {
                     background-color: #42e6a4;
                 }
                 &.incorrect {
-                    background-color: #ff597b;
+                    background-color: #f06b86;
                 }
                 &.time {
                     background-color: #ff7b54;
@@ -132,11 +133,16 @@
             user-select: none;
             .item {
                 padding: 0.8rem 1.2rem;
-                background-color: #3ffcff44;
+                background-color: #f06af944;
                 border-radius: 14px;
                 counter-reset: item;
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
                 box-shadow: 1px 1px 5px #00000044;
+                transition: 0.4s;
+                &:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 1px 1px 10px #00000077;
+                }
 
                 &.correct {
                     background-color: #5fff6f44;
