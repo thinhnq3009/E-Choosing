@@ -13,7 +13,7 @@
                     if (counter === 2) item.isMultipleChoice = true;
                 }
             });
-            return index < 6;
+            return index < 20;
         });
     };
 

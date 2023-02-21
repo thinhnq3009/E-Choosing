@@ -1,0 +1,33 @@
+
+<app-banner></app-banner>
+
+<!-- Content -->
+<main class="container py-5 Course">
+    <h1 class="text-light text-center font-weight-bold mb-3">Quizzes</h1>
+    <section class="row">
+        <!-- 1 Khoá học :'( -->
+        <div class="col-lg-3 col-md-6 mb-4" ng-repeat="quiz in quizzes">
+            <div data-wow-delay="0.2s" class="wow fadeInUp card-course shadow position-relative">
+                <img class="mb-2 course-img" src="../static/image/vatly.png" alt="" />
+                <a href="#!/doing/{{quiz.join_code}}">
+                    <div class="content py-2 text-center bg-light">
+                        <h5 class="mb-0">{{quiz.name}}</h5>
+                        <p class="mb-0">{{quiz.max_question}} Questions</p>
+                    </div>
+                </a>
+                <div class="action">
+                    <button class="fadeInLeft btn btn-light">
+                        <i class="bi bi-share"></i>
+                    </button>
+                    <a href="#!/doing/{{quiz.join_code}}" class="fadeIn m-0 btn btn-light">Join</a>
+                    <button class="fadeInRight m-0 btn btn-light">
+                        <i class="bi bi-bookmark-dash"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+      
+    </section>
+</main>
+<!-- Content -->

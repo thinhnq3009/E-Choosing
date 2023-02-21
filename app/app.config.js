@@ -7,7 +7,7 @@
             // $locationProvider.html5Mode(true);
             $routeProvider
                 .when("/", {
-                    templateUrl: "pages/app-login/app-login.template.html",
+                    templateUrl: "pages/app-home/app-home.template.html",
                 })
                 .when("/login", {
                     templateUrl: "pages/app-login/app-login.template.html",
@@ -24,7 +24,14 @@
                 })
                 .when("/summary", {
                     templateUrl: "pages/app-summary/app-summary.template.html",
-                    controller: "summaryController"
+                    controller: "summaryController",
+                })
+                .when("/contract", {
+                    templateUrl: "pages/app-contract/app-contract.template.html",
+                })
+                .when("/quizzes", {
+                    templateUrl: "pages/app-quizzes/app-quizzes.template.html",
+                    controller: "quizzesController"
                 })
                 .when("/404error", {
                     templateUrl: "pages/app-error/404-page.html",
