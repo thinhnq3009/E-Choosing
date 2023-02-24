@@ -86,15 +86,14 @@
      * @param questions - [{
      * @returns { userMarks, maxMarks }
      */
-    
 
     function handelComplete($scope, $location, $anchorScroll, completeQuiz) {
         return () => {
             console.log($scope.completeQuiz);
             const { quiz, questions } = $scope;
             completeQuiz.completeQuiz(quiz, questions).then(() => {
-                $location.url("/summary")
-                $anchorScroll("header")
+                $location.url("/summary");
+                $anchorScroll("header");
             });
         };
     }
@@ -125,7 +124,14 @@
                 $scope.remaining = ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
 
                 if (!$scope.counter) {
-                    $interval.cancel(idTimeOut);
+                
+                    
+
+
+
+
+
+                    
                 }
             }, 1000);
 

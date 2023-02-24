@@ -1,5 +1,7 @@
 (function () {
-    const RootController = ($rootScope, $http) => {};
+    const RootController = ($rootScope, $http) => {
+       
+    };
 
     const getUser = ($rootScope, $http) => {
         const token = sessionStorage.getItem("token");

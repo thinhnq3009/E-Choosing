@@ -1,0 +1,14 @@
+<div class="notification-item" ng-class="{ [$ctrl.data.type]: $ctrl.data.type}">
+    <div class="item-icon">
+        <i ng-show="$ctrl.data.type == 'message'" class="bi bi-messenger"></i>
+        <i ng-show="$ctrl.data.type == 'success'" class="bi bi-check-circle-fill"></i>
+        <i ng-show="$ctrl.data.type == 'warning'" class="bi bi-exclamation-circle-fill"></i>
+        <i ng-show="$ctrl.data.type == 'danger'" class="bi bi-x-circle-fill"></i>
+    </div>
+    <div class="item-content">
+        <p>{{$ctrl.data.message}}</p>
+    </div>
+    <div class="item-close">
+        <i class="bi bi-x-circle-fill" ng-click="handelClose($event.target)"></i>
+    </div>
+</div>

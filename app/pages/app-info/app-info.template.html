@@ -1,6 +1,6 @@
 <!-- Navigation -->
 
-<main class="UserInfo container-fluid my-5" ng-controller="infoController">
+<main class="UserInfo container-fluid my-5">
     <div class="container">
         <div class="row">
             <div class="col-md-4 px-2 mb-3">
@@ -9,7 +9,9 @@
                         <i class="bi bi-images"></i>
                         <img class="avt-img" src="{{$parent.userLogin.avatar}}" alt="" />
                     </div>
-                    <h3 class="text-center font-weight-bold mb-5">{{$parent.userLogin.fullname}}</h3>
+                    <h3 class="text-center font-weight-bold mb-5">
+                        {{$parent.userLogin.fullname}}
+                    </h3>
 
                     <div class="info">
                         <div class="info-item px-1">
@@ -49,7 +51,9 @@
                                 <i class="bi bi-gender-ambiguous"></i>
                                 <span>Gender</span>
                             </div>
-                            <span class="info-item-content">{{$parent.userLogin.gender | titleCase}}</span>
+                            <span class="info-item-content"
+                                >{{$parent.userLogin.gender | titleCase}}</span
+                            >
                         </div>
 
                         <div class="info-item px-1">
@@ -74,7 +78,11 @@
                             </div>
                             <span class="info-item-content flex-grow-1">
                                 <i class="bi bi-pencil-square"></i>
-                                <input type="text" value="{{$parent.userLogin.fullname}}" readonly />
+                                <input
+                                    type="text"
+                                    value="{{$parent.userLogin.fullname}}"
+                                    readonly
+                                />
                             </span>
                         </div>
 
@@ -85,7 +93,11 @@
                             </div>
                             <span class="info-item-content flex-grow-1">
                                 <i class="bi bi-pencil-square"></i>
-                                <input type="text" value="{{$parent.userLogin.email | lowercase}}" readonly />
+                                <input
+                                    type="text"
+                                    value="{{$parent.userLogin.email | lowercase}}"
+                                    readonly
+                                />
                             </span>
                         </div>
                         <div class="info-item px-1">
@@ -98,16 +110,100 @@
                                 <input type="text" value="{{$parent.userLogin.phone}}" readonly />
                             </span>
                         </div>
-                        <div class="info-item px-1">
-                            <div class="info-item-title">
-                                <i class="bi bi-key"></i>
-                                <span>Password</span>
+
+                        <form name="changePassword">
+                            <div class="info-item px-1">
+                                <div class="info-item-title">
+                                    <i class="bi bi-key"></i>
+                                    <span>Password</span>
+                                </div>
+                                <span class="info-item-content flex-grow-1">
+                                    <i
+                                        ng-click="handler.toggleOldPass()"
+                                        ng-show="!showOldPass && isChanging"
+                                        class="bi bi-eye-slash"
+                                    ></i>
+                                    <i
+                                        ng-click="handler.toggleOldPass()"
+                                        ng-show="showOldPass && isChanging"
+                                        class="bi bi-eye"
+                                    ></i>
+                                    <i
+                                        ng-hide="isChanging"
+                                        class="bi bi-pencil-square"
+                                        ng-click="isChanging = true"
+                                    ></i>
+                                    <input
+                                        ng-model="oldPass"
+                                        type="{{showOldPass ? 'text' : 'password'}}"
+                                        placeholder="########"
+                                        ng-readonly="!isChanging"
+                                        ng-required="true"
+                                    />
+                                </span>
                             </div>
-                            <span class="info-item-content flex-grow-1">
-                                <i class="bi bi-pencil-square" data-target="#change-pass" data-toggle="modal"></i>
-                                <input type="password" value="passwordpassword" readonly />
-                            </span>
-                        </div>
+
+                            <div ng-show="isChanging">
+                                <div class="info-item px-1">
+                                    <span class="info-item-content flex-grow-1">
+                                        <i
+                                            ng-click="handler.toggleNewPass()"
+                                            ng-hide="showNewPass"
+                                            class="bi bi-eye-slash"
+                                        ></i>
+                                        <i
+                                            ng-click="handler.toggleNewPass()"
+                                            ng-show="showNewPass"
+                                            class="bi bi-eye"
+                                        ></i>
+                                        <input
+                                            ng-model="newPass"
+                                            type="{{showNewPass ? 'text' : 'password'}}"
+                                            placeholder="Enter new password"
+                                            ng-required="true"
+                                        />
+                                    </span>
+                                </div>
+                                <div class="info-item px-1">
+                                    <span class="info-item-content flex-grow-1">
+                                        <i
+                                            ng-click="handler.toggleConfirmPass()"
+                                            ng-hide="showConfirmPass"
+                                            class="bi bi-eye-slash"
+                                        ></i>
+                                        <i
+                                            ng-click="handler.toggleConfirmPass()"
+                                            ng-show="showConfirmPass"
+                                            class="bi bi-eye"
+                                        ></i>
+                                        <input
+                                            ng-model="confirmPass"
+                                            ng-pattern="newPass"
+                                            type="{{showConfirmPass ? 'text' : 'password'}}"
+                                            placeholder="Enter new password again"
+                                            ng-required="true"
+                                        />
+                                    </span>
+                                </div>
+                                <div class="info-item px-1">
+                                    <span class="info-item-content flex-grow-1">
+                                        <button
+                                            class="btn btn-success ml-3 rounded px-3"
+                                            ng-click="handelChangePass()"
+                                            ng-disabled="changePassword.$invalid"
+                                        >
+                                            Change
+                                        </button>
+                                        <button
+                                            class="btn btn-danger rounded px-3"
+                                            ng-click="handler.reset()"
+                                        >
+                                            Cancel
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div data-wow-delay="0.3s" class="wow fadeInRight box">
@@ -143,11 +239,13 @@
 </main>
 
 <!-- Modal -->
-<div class="modal fade UserInfo" id="change-pass" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- <div class="modal fade UserInfo" id="change-pass" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header pb-1">
-                <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">Change Password</h5>
+                <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">
+                    Change Password
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"><i class="bi bi-x-circle"></i></span>
                 </button>
@@ -157,48 +255,86 @@
                     <div class="form-group">
                         <label for="old-password">Old Password</label>
                         <i class="bi bi-key form-icon"></i>
-                        <i class="bi bi-eye right-icon"></i>
+                        <i
+                            ng-click="handler.toggleOldPass()"
+                            ng-show="showOldPass"
+                            class="bi bi-eye right-icon"
+                        ></i>
+                        <i
+                            ng-click="handler.toggleOldPass()"
+                            ng-hide="showOldPass"
+                            class="bi bi-eye-slash right-icon"
+                        ></i>
                         <input
-                            type="password"
+                            ng-model="oldPass"
+                            type="{{showOldPass ? 'text': 'password'}}"
                             class="form-control shadow-none"
                             id="old-password"
                             placeholder="Enter your old password."
                         />
-                        <small class="form-text text-muted d-none">Please enter your old password.</small>
+                        <small class="form-text text-muted d-none"
+                            >Please enter your old password.</small
+                        >
                     </div>
 
                     <div class="form-group">
                         <label for="password">New Password</label>
                         <i class="bi bi-key form-icon"></i>
-                        <i class="bi bi-eye right-icon"></i>
+                        <i
+                            ng-click="handler.toggleNewPass()"
+                            ng-show="showNewPass"
+                            class="bi bi-eye right-icon"
+                        ></i>
+                        <i
+                            ng-click="handler.toggleNewPass()"
+                            ng-hide="showNewPass"
+                            class="bi bi-eye-slash right-icon"
+                        ></i>
                         <input
-                            type="password"
+                            ng-model="newPass"
+                            type="{{showNewPass ? 'text': 'password'}}"
                             class="form-control shadow-none"
                             id="password"
                             placeholder="Enter your new password."
                         />
-                        <small class="form-text text-muted d-none">Please enter your password</small>
+                        <small class="form-text text-muted d-none"
+                            >Please enter your password</small
+                        >
                     </div>
 
                     <div class="form-group">
                         <label for="confirm-password">Repeat password</label>
                         <i class="bi bi-key form-icon"></i>
-                        <i class="bi bi-eye right-icon"></i>
+                        <i
+                            ng-click="handler.toggleConfirmPass()"
+                            ng-show="showConfirmPass"
+                            class="bi bi-eye right-icon"
+                        ></i>
+                        <i
+                            ng-click="handler.toggleConfirmPass()"
+                            ng-hide="showConfirmPass"
+                            class="bi bi-eye-slash right-icon"
+                        ></i>
                         <input
-                            type="password"
+                            ng-model="confirmPass"
+                            type="{{showConfirmPass ? 'text': 'password'}}"
                             class="form-control shadow-none"
                             id="confirm-password"
                             placeholder="Enter your password."
                         />
-                        <small class="form-text text-muted d-none">Please enter your password again.</small>
+                        <small class="form-text text-muted d-none"
+                            >Please enter your password again.</small
+                        >
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn rounded px-4 btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn rounded px-4 btn-danger" data-dismiss="modal">
+                    Cancel
+                </button>
                 <button type="button" class="btn rounded px-4 btn-success">Change</button>
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <!-- Modal -->

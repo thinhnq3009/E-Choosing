@@ -56,7 +56,7 @@
   flex-direction: row-reverse;
   justify-content: end;
 }
-.UserInfo .info .info-item .info-item-content input[value] {
+.UserInfo .info .info-item .info-item-content input {
   padding-left: 1rem;
   background-color: transparent;
   border: none;

@@ -1,0 +1,12 @@
+.modal-content {
+  border-radius: 20px;
+  border: none;
+}
+.modal-content .modal-header {
+  color: rgba(0, 0, 0, 0.7333333333);
+  background-color: rgba(97, 214, 221, 0.2);
+  padding-bottom: 0.5rem !important;
+}
+.modal-content .modal-footer {
+  background: rgba(97, 214, 221, 0.2);
+}/*# sourceMappingURL=Modal.css.map */

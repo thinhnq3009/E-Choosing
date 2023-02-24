@@ -1,0 +1,66 @@
+
+app-notification {
+}
+
+.notification-container {
+    position: fixed;
+    top: 2rem;
+    right: 0;
+    z-index: 9999;
+    .notification-item {
+        margin-top: 0.7rem;
+        margin-right: 1rem;
+        border-radius: 100px;
+        color: #ffffffcc;
+        background: #42e6a4;
+        padding: 0.5rem 1rem;
+        display: flex;
+        box-shadow: 0 0 1.7rem rgba(0, 0, 0, 0.4);
+        animation: bounceInRight 1s  forwards;
+
+        &.closed {
+            animation: bounceOutRight 1s forwards;
+        }
+
+        &.message {
+            background: #5bc0f8;
+        }
+
+        &.success {
+            background: #42e6a4;
+        }
+
+        &.warning {
+            background: #f2cd5c;
+        }
+
+        &.danger {
+            background: #f06b86;
+        }
+    }
+
+    .item-content {
+        font-size: 18px;
+        margin-left: 12px;
+        margin-right: 12px;
+        display: flex;
+        align-items: center;
+        flex: 1;
+        p {
+            line-height: 100%;
+            margin: 0;
+        }
+    }
+
+    .item-close {
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+            transform: rotateZ(80deg);
+        }
+    }
+
+    .bi {
+        font-size: 30px;
+    }
+}

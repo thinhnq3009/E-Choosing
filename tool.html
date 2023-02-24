@@ -86,6 +86,15 @@
     <button id="cp-btn">Copy</button>
     <pre id="mysql-output">Đây là output</pre>
     <script>
+        function gc() {
+        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var result = "";
+            for (var i = 0; i < 10; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+        return result;
+        }
+
 
         const random = () => {
             min = Math.ceil(10000);
@@ -104,7 +113,7 @@
             const code = document.getElementById("code").value;
             const name = document.getElementById("name").value;
 
-            let sql = `INSERT INTO quizzes ( subject_code, name, duration) VALUES ('${code}', '${name}', ${30 * 60});\n\n`;
+            let sql = `INSERT INTO quizzes ( join_code ,subject_code, name, duration) VALUES (${gc()} , '${code}', '${name}', ${30 * 60});\n\n`;
             mysqlOutput0.innerHTML = sql;
             sql = ""
 
@@ -123,8 +132,6 @@
                 });
 
             })
-
-
             mysqlOutput.textContent = sql;
         });
 

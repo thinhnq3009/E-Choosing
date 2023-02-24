@@ -28,6 +28,8 @@
         <link rel="stylesheet" href="../static/style/404-style.css" />
         <link rel="stylesheet" href="../static/style/Contract/Contract.css" />
         <link rel="stylesheet" href="../static/style/Course/Course.css" />
+        <link rel="stylesheet" href="../static/style/Modal/Modal.css" />
+        <link rel="stylesheet" href="../static/style/Notification/Notification.css" />
 
         <script src="../lib/jQuery-3.5.1/jquery.slim.min.js"></script>
         <script src="../lib/wow-1.1.2/wow.min.js"></script>
@@ -48,11 +50,13 @@
         <script src="./pages/app-doing/app-doing.controller.js"></script>
         <script src="./pages/app-summary/app-summary.controller.js"></script>
         <script src="./pages/app-quizzes/quizzesController.js"></script>
+        <script src="./pages/app-test/testController.js"></script>
 
         <!-- Service -->
         <script src="./services/session.service.js"></script>
         <script src="./pages/app-doing/submission-factory.js"></script>
         <script src="./pages/app-doing/complete-factory.js"></script>
+        <script src="./services/Notifier.service.js"></script>
 
         <!-- Component -->
         <script src="./components/app-loading/app-loading.component.js"></script>
@@ -60,6 +64,7 @@
         <script src="./components/app-footer/app-footer.component.js"></script>
         <script src="./components/app-modal/app-modal.component.js"></script>
         <script src="./components/app-banner/app-banner.component.js"></script>
+        <script src="./components/app-notification/app-notification.component.js"></script>
 
         <title>E-Choosing</title>
     </head>
@@ -69,5 +74,12 @@
         <div ng-view></div>
         <app-footer ng-show="showFooter"></app-footer>
         <app-loading ng-show="isLoading"></app-loading>
+
+        <div class="notification-container">
+            <app-notification
+                ng-repeat="item in notifications"
+                data="item"
+            ></app-notification>
+        </div>
     </body>
 </html>

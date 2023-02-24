@@ -1,0 +1,54 @@
+.notification-container {
+  position: fixed;
+  top: 2rem;
+  right: 0;
+  z-index: 9999;
+}
+.notification-container .notification-item {
+  margin-top: 0.7rem;
+  margin-right: 1rem;
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.8);
+  background: #42e6a4;
+  padding: 0.5rem 1rem;
+  display: flex;
+  box-shadow: 0 0 1.7rem rgba(0, 0, 0, 0.4);
+  animation: bounceInRight 1s forwards;
+}
+.notification-container .notification-item.closed {
+  animation: bounceOutRight 1s forwards;
+}
+.notification-container .notification-item.message {
+  background: #5bc0f8;
+}
+.notification-container .notification-item.success {
+  background: #42e6a4;
+}
+.notification-container .notification-item.warning {
+  background: #f2cd5c;
+}
+.notification-container .notification-item.danger {
+  background: #f06b86;
+}
+.notification-container .item-content {
+  font-size: 18px;
+  margin-left: 12px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.notification-container .item-content p {
+  line-height: 100%;
+  margin: 0;
+}
+.notification-container .item-close {
+  cursor: pointer;
+  transition: 0.5s;
+}
+.notification-container .item-close:hover {
+  transform: rotateZ(80deg);
+}
+.notification-container .bi {
+  font-size: 30px;
+}/*# sourceMappingURL=Notification.css.map */

@@ -17,6 +17,7 @@
                 })
                 .when("/user-info", {
                     templateUrl: "pages/app-info/app-info.template.html",
+                    controller: "infoController",
                 })
                 .when("/doing/:code", {
                     templateUrl: "pages/app-doing/app-doing.template.html",
@@ -31,11 +32,15 @@
                 })
                 .when("/quizzes", {
                     templateUrl: "pages/app-quizzes/app-quizzes.template.html",
-                    controller: "quizzesController"
+                    controller: "quizzesController",
                 })
                 .when("/404error", {
                     templateUrl: "pages/app-error/404-page.html",
-                });
+                })
+                .when("/test", {
+                    templateUrl: "pages/app-test/app-test.html",
+                    controller: "testController",
+                })
         },
     ]);
 })();
