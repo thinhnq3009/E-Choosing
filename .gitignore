@@ -1,0 +1,9 @@
+logs/*
+!.gitkeep
+node_modules/
+app/lib/
+tmp
+pages/
+.DS_Store
+.idea
+angular-phonecat-snapshots
