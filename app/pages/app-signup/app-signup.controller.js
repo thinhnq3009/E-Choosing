@@ -2,7 +2,9 @@ angular.module("choosing-app").controller("signupController", [
     "$scope",
     "$http",
     "$rootScope",
-    ($scope, $http, $rootScope) => {
+    "$location",
+    "$notifier",
+    ($scope, $http, $rootScope, $location, $notifier) => {
         /**
          * Handel shows and hide password
          */
@@ -23,9 +25,9 @@ angular.module("choosing-app").controller("signupController", [
                 .post($rootScope.apiUrl + "/check-user/", { params: data })
                 .then(({ data }) => {
                     if (!data.value) {
-                        $scope.isUsed = 1;
+                        $scope.isUsed = 1; // Username is valid
                     } else {
-                        $scope.isUsed = -1;
+                        $scope.isUsed = -1; // Username is not valid
                     }
                 })
                 .catch((err) => console.log(err))
@@ -46,17 +48,18 @@ angular.module("choosing-app").controller("signupController", [
             const params = { username, password, fullname, email };
 
             // Show loading screen
-            $rootScope.errorMessage = "";
-            $rootScope.successMessage = "";
             $rootScope.isLoading = true;
 
             $http
                 .post($rootScope.apiUrl + "/user/", { params: params })
                 .then(({ data }) => {
-                    $rootScope.errorMessage = data.error;
-                    $rootScope.successMessage = data.success;
+                    data.error && $notifier.showError(data.error);
+                    if (data.success) {
+                        $notifier.showSuccess("Sign Up Success");
+                        $location.url("/login");
+                    }
                 })
-                .catch((error) => ($rootScope.errorMessage = error.message))
+                .catch((error) => $notifier.showError(error.message))
                 .finally(() => ($rootScope.isLoading = false));
         };
     },

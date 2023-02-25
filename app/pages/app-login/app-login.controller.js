@@ -3,7 +3,8 @@ angular.module("choosing-app").controller("loginController", [
     "$http",
     "$rootScope",
     "$location",
-    ($scope, $http, $rootScope, $location) => {
+    "$notifier",
+    ($scope, $http, $rootScope, $location, $notifier) => {
         $scope.handelShowPass = () => {
             $scope.show = !$scope.show;
         };
@@ -29,7 +30,7 @@ angular.module("choosing-app").controller("loginController", [
 
                         $location.url("/user-info");
                     } else {
-                        $scope.errorMessage = "Login failed! Please try again";
+                        $notifier.showError("Login failed! Please try again");
                     }
                 })
                 .catch((error) => {

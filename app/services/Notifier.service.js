@@ -11,6 +11,7 @@
             showSuccess: showSuccess,
             showWarning: showWarning,
             showMessage: showMessage,
+            readAndShow: readAndShow,
         };
 
         function show(object) {
@@ -34,6 +35,11 @@
         }
         function showMessage(message) {
             show({ type: "message", message });
+        }
+
+        function readAndShow(data) {
+            data.error && showError(data.error);
+            data.success && showSuccess(data.success);
         }
     }
 })();
