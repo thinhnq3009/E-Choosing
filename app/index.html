@@ -5,66 +5,68 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="shortcut icon" href="../static/image/dark.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="assets/image/dark.png" type="image/x-icon" />
 
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
         />
 
-        <link rel="stylesheet" href="../lib/bootstrap-4.6.2/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="../lib/bootstrap-4.6.2/dist/css/form-floating.css" />
-        <link rel="stylesheet" href="../lib/wow-1.1.2/animate.min.css" />
+        <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="assets/libs/wowjs/css/libs/animate.css" />
+        
+        <link rel="stylesheet" href="assets/style/form-floating.css" />
+        <link rel="stylesheet" href="assets/style/GlobalStyle.css" />
+        <link rel="stylesheet" href="assets/style/HeaderBanner.css" />
+        <link rel="stylesheet" href="assets/style/Footer/Footer.css" />
+        <link rel="stylesheet" href="assets/style/HomePage/HomePage.css" />
+        <link rel="stylesheet" href="assets/style/NavigationBar/NavigationBar.css" />
+        <link rel="stylesheet" href="assets/style/SignIn/SignIn.css" />
+        <link rel="stylesheet" href="assets/style/UserInfo/UserInfo.css" />
+        <link rel="stylesheet" href="assets/style/Doing/Doing.css" />
+        <link rel="stylesheet" href="assets/style/Summary/Summary.css" />
+        <link rel="stylesheet" href="assets/style/404-style.css" />
+        <link rel="stylesheet" href="assets/style/Contract/Contract.css" />
+        <link rel="stylesheet" href="assets/style/Course/Course.css" />
+        <link rel="stylesheet" href="assets/style/Modal/Modal.css" />
+        <link rel="stylesheet" href="assets/style/Notification/Notification.css" />
 
-        <link rel="stylesheet" href="../static/style/GlobalStyle.css" />
-        <link rel="stylesheet" href="../static/style/HeaderBanner.css" />
-        <link rel="stylesheet" href="../static/style/Footer/Footer.css" />
-        <link rel="stylesheet" href="../static/style/HomePage/HomePage.css" />
-        <link rel="stylesheet" href="../static/style/NavigationBar/NavigationBar.css" />
-        <link rel="stylesheet" href="../static/style/SignIn/SignIn.css" />
-        <link rel="stylesheet" href="../static/style/UserInfo/UserInfo.css" />
-        <link rel="stylesheet" href="../static/style/Doing/Doing.css" />
-        <link rel="stylesheet" href="../static/style/Summary/Summary.css" />
-        <link rel="stylesheet" href="../static/style/404-style.css" />
-        <link rel="stylesheet" href="../static/style/Contract/Contract.css" />
-        <link rel="stylesheet" href="../static/style/Course/Course.css" />
-        <link rel="stylesheet" href="../static/style/Modal/Modal.css" />
-        <link rel="stylesheet" href="../static/style/Notification/Notification.css" />
+        <script src="assets/libs/jquery/dist/jquery.js"></script>
+        <script src="assets/libs/wowjs/dist/wow.js"></script>
+        <script src="assets/libs/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="assets/libs/angular/angular.js"></script>
+        <script src="assets/libs/angular-route/angular-route.js"></script>
 
-        <script src="../lib/jQuery-3.5.1/jquery.slim.min.js"></script>
-        <script src="../lib/wow-1.1.2/wow.min.js"></script>
-        <script src="../lib/wow-1.1.2/init.js"></script>
-        <script src="../lib/bootstrap-4.6.2/dist/js/bootstrap.min.js"></script>
-        <script src="../lib/angular-1.8.2/angular.js"></script>
-        <script src="../lib/angular-1.8.2/angular-route.js"></script>
+        <script>
+            new WOW().init();
+        </script>
 
-        <script src="./app.module.js"></script>
-        <script src="./app.config.js"></script>
-        <script src="./app.filter.js"></script>
-        <script src="./app.directive.js"></script>
+        <script src="app.module.js"></script>
+        <script src="app.config.js"></script>
+        <script src="app.filter.js"></script>
+        <script src="app.directive.js"></script>
 
         <!-- Controller -->
-        <script src="./pages/app-login/app-login.controller.js"></script>
-        <script src="./pages/app-signup/app-signup.controller.js"></script>
-        <script src="./pages/app-info/app-info.controller.js"></script>
-        <script src="./pages/app-doing/app-doing.controller.js"></script>
-        <script src="./pages/app-summary/app-summary.controller.js"></script>
-        <script src="./pages/app-quizzes/quizzesController.js"></script>
-        <script src="./pages/app-test/testController.js"></script>
+        <script src="controllers/app-login.controller.js"></script>
+        <script src="controllers/app-signup.controller.js"></script>
+        <script src="controllers/app-info.controller.js"></script>
+        <script src="controllers/app-doing.controller.js"></script>
+        <script src="controllers/app-summary.controller.js"></script>
+        <script src="controllers/quizzesController.js"></script>
 
         <!-- Service -->
-        <script src="./services/session.service.js"></script>
-        <script src="./pages/app-doing/submission-factory.js"></script>
-        <script src="./pages/app-doing/complete-factory.js"></script>
-        <script src="./services/Notifier.service.js"></script>
+        <script src="services/session.service.js"></script>
+        <script src="services/submission.service.js"></script>
+        <script src="services/complete.service.js"></script>
+        <script src="services/Notifier.service.js"></script>
 
         <!-- Component -->
-        <script src="./components/app-loading/app-loading.component.js"></script>
-        <script src="./components/app-header/app-header.component.js"></script>
-        <script src="./components/app-footer/app-footer.component.js"></script>
-        <script src="./components/app-modal/app-modal.component.js"></script>
-        <script src="./components/app-banner/app-banner.component.js"></script>
-        <script src="./components/app-notification/app-notification.component.js"></script>
+        <script src="components/app-loading/app-loading.component.js"></script>
+        <script src="components/app-header/app-header.component.js"></script>
+        <script src="components/app-footer/app-footer.component.js"></script>
+        <script src="components/app-modal/app-modal.component.js"></script>
+        <script src="components/app-banner/app-banner.component.js"></script>
+        <script src="components/app-notification/app-notification.component.js"></script>
 
         <title>E-Choosing</title>
     </head>
@@ -76,10 +78,7 @@
         <app-loading ng-show="isLoading"></app-loading>
 
         <div class="notification-container">
-            <app-notification
-                ng-repeat="item in notifications"
-                data="item"
-            ></app-notification>
+            <app-notification ng-repeat="item in notifications" data="item"></app-notification>
         </div>
     </body>
 </html>
