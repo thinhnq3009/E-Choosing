@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy-libs": "cpx \"node_modules/{angular,angular-*,bootstrap/dist,jquery/dist,wowjs/dist,wowjs/css/libs}/**/*\" app/assets/libs -C",
-    "start": "live-server app/"    
+    "start": "live-server app/",
+    "mini": "grunt"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "angular": "^1.8.2",
     "angular-route": "1.8.x",
     "bootstrap": "^4.6.0",
+    "css-minify": "^2.0.0",
     "jquery": "^3.6.3",
     "wowjs": "^1.1.3"
   },
