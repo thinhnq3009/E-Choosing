@@ -18,10 +18,9 @@
 
     angular.module("choosing-app").controller("infoController", controller);
 
-    controller.$inject = ["$scope", "$rootScope", "$http", "$notifier"];
+    controller.$inject = ["$scope", "$rootScope", "$http", "$notifier", "$users"];
 
-    function controller($scope, $rootScope, $http, $notifier) {
-        console.log($notifier);
+    function controller($scope, $rootScope, $http, $notifier, $users) {
         $scope.showOldPass = false;
         $scope.showNewPass = false;
         $scope.showConfirmPass = false;
@@ -50,5 +49,15 @@
                     $rootScope.isLoading = false;
                 });
         };
+
+        $scope.modalButtons = [
+            {
+                className: "btn-success",
+                text: "Change",
+                event: () => {
+                   $users.update($scope.newInfo)
+                },
+            },
+        ];
     }
 })();

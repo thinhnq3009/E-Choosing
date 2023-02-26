@@ -15,9 +15,9 @@
             sessionStorage.removeItem(key);
         }
 
-        function get(key) {
+        function get(key, parse = true) {
             const data = sessionStorage.getItem(key);
-            return JSON.parse(data) || data;
+            return parse ? JSON.parse(data) : data;
         }
 
         function set(key, data) {

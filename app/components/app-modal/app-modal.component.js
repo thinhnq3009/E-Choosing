@@ -26,8 +26,6 @@
             "$rootScope",
             "$element",
             ($scope, $rootScope, $element) => {
-                console.log($element);
-
                 $scope.render = () => {
                     if (!$rootScope.modalTargetElements) {
                         console.error(

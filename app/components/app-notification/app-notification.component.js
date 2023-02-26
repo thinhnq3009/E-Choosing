@@ -19,7 +19,6 @@
 
         this.$onInit = () => {
             bindingData = this.data;
-            console.log(bindingData);
         };
 
         // Tự  động tắt 

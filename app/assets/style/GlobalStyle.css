@@ -150,3 +150,9 @@ a:hover {
 .bg-black-35{
     background-color: rgba(0, 0, 0, .35);
 }
+
+.carousel-control-next,
+.carousel-control-prev{
+    background: transparent !important;
+    border: none !important;
+}

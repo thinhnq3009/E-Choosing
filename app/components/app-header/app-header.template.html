@@ -6,6 +6,7 @@
     >
         <a class="navbar-brand d-flex align-items-center pl-xl-5" href="#!/">
             <img
+                check-image
                 src="assets/image/light.png"
                 width="50"
                 height="50"
@@ -91,7 +92,7 @@
                         aria-haspopup="true"
                         aria-expanded="false"
                     >
-                        <img class="avt_image" src="{{$parent.userLogin.avatar}}" alt="Avt" />
+                        <img check-image class="avt_image" src="{{$parent.userLogin.avatar}}" alt="Avt" />
                         <span class="username ml-2">{{$parent.userLogin.fullname}}</span>
                         <i class="bi bi-caret-down-fill ml-1"></i>
                         <div class="dropdown-menu animated fadeInUp" aria-labelledby="sub-avt-menu">

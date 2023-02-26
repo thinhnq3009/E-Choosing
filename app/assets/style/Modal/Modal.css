@@ -1,6 +1,7 @@
 .modal-content {
   border-radius: 20px;
   border: none;
+  overflow: hidden;
 }
 .modal-content .modal-header {
   color: rgba(0, 0, 0, 0.7333333333);

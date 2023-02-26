@@ -7,7 +7,12 @@
                 <div class="wow fadeInLeft box">
                     <div class="avatar mb-3 mx-auto">
                         <i class="bi bi-images"></i>
-                        <img class="avt-img" src="{{$parent.userLogin.avatar}}" alt="" />
+                        <img
+                            check-image=""
+                            class="avt-img"
+                            src="{{$parent.userLogin.avatar}}"
+                            alt=""
+                        />
                     </div>
                     <h3 class="text-center font-weight-bold mb-5">
                         {{$parent.userLogin.fullname}}
@@ -76,7 +81,10 @@
                                 <i class="bi bi-person"></i>
                                 <span>Fullname</span>
                             </div>
-                            <span class="info-item-content flex-grow-1">
+                            <span
+                                modal-id-target="change-info"
+                                class="info-item-content flex-grow-1"
+                            >
                                 <i class="bi bi-pencil-square"></i>
                                 <input
                                     type="text"
@@ -91,7 +99,10 @@
                                 <i class="bi bi-envelope-at"></i>
                                 <span>Email</span>
                             </div>
-                            <span class="info-item-content flex-grow-1">
+                            <span
+                                modal-id-target="change-info"
+                                class="info-item-content flex-grow-1"
+                            >
                                 <i class="bi bi-pencil-square"></i>
                                 <input
                                     type="text"
@@ -105,7 +116,10 @@
                                 <i class="bi bi-phone"></i>
                                 <span>Phone number</span>
                             </div>
-                            <span class="info-item-content flex-grow-1">
+                            <span
+                                modal-id-target="change-info"
+                                class="info-item-content flex-grow-1"
+                            >
                                 <i class="bi bi-pencil-square"></i>
                                 <input type="text" value="{{$parent.userLogin.phone}}" readonly />
                             </span>
@@ -239,102 +253,100 @@
 </main>
 
 <!-- Modal -->
-<!-- <div class="modal fade UserInfo" id="change-pass" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header pb-1">
-                <h5 class="modal-title font-weight-bold" id="exampleModalLongTitle">
-                    Change Password
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="bi bi-x-circle"></i></span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label for="old-password">Old Password</label>
-                        <i class="bi bi-key form-icon"></i>
-                        <i
-                            ng-click="handler.toggleOldPass()"
-                            ng-show="showOldPass"
-                            class="bi bi-eye right-icon"
-                        ></i>
-                        <i
-                            ng-click="handler.toggleOldPass()"
-                            ng-hide="showOldPass"
-                            class="bi bi-eye-slash right-icon"
-                        ></i>
-                        <input
-                            ng-model="oldPass"
-                            type="{{showOldPass ? 'text': 'password'}}"
-                            class="form-control shadow-none"
-                            id="old-password"
-                            placeholder="Enter your old password."
-                        />
-                        <small class="form-text text-muted d-none"
-                            >Please enter your old password.</small
-                        >
-                    </div>
+<app-modal
+    title="Change your information"
+    id-modal="change-info"
+    target="change-info"
+    buttons="modalButtons"
+></app-modal>
 
-                    <div class="form-group">
-                        <label for="password">New Password</label>
-                        <i class="bi bi-key form-icon"></i>
-                        <i
-                            ng-click="handler.toggleNewPass()"
-                            ng-show="showNewPass"
-                            class="bi bi-eye right-icon"
-                        ></i>
-                        <i
-                            ng-click="handler.toggleNewPass()"
-                            ng-hide="showNewPass"
-                            class="bi bi-eye-slash right-icon"
-                        ></i>
-                        <input
-                            ng-model="newPass"
-                            type="{{showNewPass ? 'text': 'password'}}"
-                            class="form-control shadow-none"
-                            id="password"
-                            placeholder="Enter your new password."
-                        />
-                        <small class="form-text text-muted d-none"
-                            >Please enter your password</small
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="confirm-password">Repeat password</label>
-                        <i class="bi bi-key form-icon"></i>
-                        <i
-                            ng-click="handler.toggleConfirmPass()"
-                            ng-show="showConfirmPass"
-                            class="bi bi-eye right-icon"
-                        ></i>
-                        <i
-                            ng-click="handler.toggleConfirmPass()"
-                            ng-hide="showConfirmPass"
-                            class="bi bi-eye-slash right-icon"
-                        ></i>
-                        <input
-                            ng-model="confirmPass"
-                            type="{{showConfirmPass ? 'text': 'password'}}"
-                            class="form-control shadow-none"
-                            id="confirm-password"
-                            placeholder="Enter your password."
-                        />
-                        <small class="form-text text-muted d-none"
-                            >Please enter your password again.</small
-                        >
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn rounded px-4 btn-danger" data-dismiss="modal">
-                    Cancel
-                </button>
-                <button type="button" class="btn rounded px-4 btn-success">Change</button>
-            </div>
+<div modal-body-target="change-info">
+    <form>
+        <div class="form-group">
+            <label for="fullname">Fullname</label>
+            <i class="bi bi-person-vcard form-icon"></i>
+            <input
+                type="text"
+                ng-model-options="{updateOn: 'blur'}"
+                ng-model="newInfo.fullname"
+                class="form-control shadow-none"
+                id="fullname"
+                placeholder="{{$parent.userLogin.fullname}}"
+            />
         </div>
-    </div>
-</div> -->
+        <div class="form-group">
+            <label for="email">Email</label>
+            <i class="bi bi-envelope form-icon"></i>
+            <input
+                type="text"
+                ng-model-options="{updateOn: 'blur'}"
+                ng-model="newInfo.email"
+                class="form-control shadow-none"
+                id="email"
+                placeholder="{{$parent.userLogin.email}}"
+            />
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <i class="bi bi-phone form-icon"></i>
+            <input
+                type="text"
+                ng-model-options="{updateOn: 'blur'}"
+                ng-model="newInfo.phone"
+                class="form-control shadow-none"
+                id="phone"
+                placeholder="{{$parent.userLogin.phone || '0123456789'}}"
+            />
+        </div>
+        <div class="form-group">
+            <label for="className">Class</label>
+            <i class="bi bi-columns-gap form-icon"></i>
+            <input
+                type="text"
+                ng-model-options="{updateOn: 'blur'}"
+                ng-model="newInfo.className"
+                class="form-control shadow-none"
+                id="className"
+                placeholder="{{$parent.userLogin.class || 'AB00000'}}"
+            />
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <i class="bi bi-gender-ambiguous form-icon"></i>
+            <select
+                class="form-control shadow-none"
+                name="gender"
+                id="gender"
+                ng-model="newInfo.gender"
+            >
+                <option selected value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of birth</label>
+            <i class="bi bi-calendar-heart form-icon"></i>
+            <input
+                ng-model-options="{updateOn: 'blur'}"
+                ng-model="newInfo.dob"
+                type="date"
+                class="form-control shadow-none"
+                id="dob"
+                placeholder="{{$parent.userLogin.dob || '0123456789'}}"
+            />
+        </div>
+        <div class="form-group">
+            <label for="school">School</label>
+            <i class="bi bi-building form-icon"></i>
+            <input
+                type="text"
+                ng-model-options="{updateOn: 'blur'}"
+                ng-model="newInfo.school"
+                class="form-control shadow-none"
+                id="school"
+                placeholder="{{$parent.userLogin.school || 'Your school'}}"
+            />
+        </div>
+    </form>
+</div>
 <!-- Modal -->

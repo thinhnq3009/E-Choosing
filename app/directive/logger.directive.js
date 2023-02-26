@@ -7,12 +7,7 @@
         var directive = {
             link: link,
             restrict: "EA",
-            scope: {
-                oneWay: "<?", // one-way
-                twoWay: "=?",
-                string: "@?",
-                onEvent: "&?", // on-event
-            },
+           
         };
 
         function link($scope, $element, $attrs, controller) {
