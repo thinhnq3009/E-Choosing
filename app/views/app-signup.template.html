@@ -43,7 +43,7 @@
                             ng-blur="checkUsername()"
                         />
                         <small ng-show="signup.username.$error.pattern" class="form-text text-muted">Username is invalid</small>
-                        <small ng-show="isUsed == -1" class="form-text text-muted">Username has been used</small>
+                        <small ng-show="isUsed == -1 && signup.username.$valid" class="form-text text-muted">Username has been used</small>
                         <small ng-show="signup.username.$error.required && signup.username.$touched" class="form-text text-muted"
                             >Please enter your username.</small
                         >
@@ -132,7 +132,7 @@
 
                     <div class="text-center">
                         <p class="mb-2">Do you already have an account ?</p>
-                        <a href="./login.html" class="btn bg-linear-gradient hover">
+                        <a href="#!/login" class="btn bg-linear-gradient hover">
                             <p class="mb-0 px-4">Login here</p>
                         </a>
                     </div>

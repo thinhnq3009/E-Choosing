@@ -7,14 +7,16 @@
 
         <link rel="shortcut icon" href="assets/image/dark.png" type="image/x-icon" />
 
+        <!-- lib css -->
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
         />
-
         <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="assets/libs/wowjs/css/libs/animate.css" />
-        
+        <!-- lib css -->
+
+        <!-- customize css -->
         <link rel="stylesheet" href="assets/style/form-floating.css" />
         <link rel="stylesheet" href="assets/style/GlobalStyle.css" />
         <link rel="stylesheet" href="assets/style/HeaderBanner.css" />
@@ -30,12 +32,15 @@
         <link rel="stylesheet" href="assets/style/Course/Course.css" />
         <link rel="stylesheet" href="assets/style/Modal/Modal.css" />
         <link rel="stylesheet" href="assets/style/Notification/Notification.css" />
+        <!-- customize css -->
 
+        <!-- libs -->
         <script src="assets/libs/jquery/dist/jquery.js"></script>
         <script src="assets/libs/wowjs/dist/wow.js"></script>
         <script src="assets/libs/bootstrap/dist/js/bootstrap.js"></script>
         <script src="assets/libs/angular/angular.js"></script>
         <script src="assets/libs/angular-route/angular-route.js"></script>
+        <!-- libs -->
 
         <script>
             new WOW().init();
@@ -44,8 +49,12 @@
         <script src="app.module.js"></script>
         <script src="app.config.js"></script>
         <script src="app.filter.js"></script>
-        <script src="app.directive.js"></script>
 
+        <!-- Directive -->
+        <script src="directive/logger.directive.js"></script>
+        <script src="directive/modal-body-target.directive.js"></script>
+        <script src="directive/model-id-target.directive.js"></script>
+        
         <!-- Controller -->
         <script src="controllers/app-login.controller.js"></script>
         <script src="controllers/app-signup.controller.js"></script>

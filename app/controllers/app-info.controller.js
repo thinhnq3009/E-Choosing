@@ -43,7 +43,7 @@
                     data.error && $notifier.showError(data.error);
                     if (data.success) {
                         $notifier.showSuccess(data.success);
-                        $scope.isChanging = false;
+                        $scope.handler.reset();
                     }
                 })
                 .finally(() => {
