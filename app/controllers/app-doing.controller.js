@@ -102,9 +102,12 @@
         return () => {
             const params = {
                 submission_id: $scope.quiz.submission_id,
+                user_id: $rootScope.userLogin.id,
             };
 
-            $http.put($rootScope.apiUrl + "/submission/", { params }).then(({ data }) => {
+            console.log($interval);
+
+            $http.put($rootScope.apiUrl + "/submission/", { params }).then(() => {
                 let idTimeOut = $interval(() => {
                     if (!--$scope.counter) {
                         $interval.cancel(idTimeOut);
@@ -124,14 +127,6 @@
                 $scope.remaining = ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
 
                 if (!$scope.counter) {
-                
-                    
-
-
-
-
-
-                    
                 }
             }, 1000);
 
@@ -149,7 +144,7 @@
         "$anchorScroll",
         "submissionQuiz",
         "completeQuiz",
-        (
+        function (
             $scope,
             $rootScope,
             $routeParams,
@@ -159,7 +154,7 @@
             $anchorScroll,
             submissionQuiz,
             completeQuiz
-        ) => {
+        ) {
             $rootScope.isLoading = true;
             $scope.code = $routeParams.code.toUpperCase();
             $scope.complete = 0;

@@ -19,7 +19,7 @@ angular.module("choosing-app").controller("loginController", [
             };
 
             $http
-                .get($rootScope.apiUrl + "/user", { params: data })
+                .get($rootScope.apiUrl + "/user/", { params: data })
                 .then(({ data }) => {
                     if (data.length > 0) {
                         sessionStorage.setItem("token", data[0].token);
@@ -27,7 +27,7 @@ angular.module("choosing-app").controller("loginController", [
                         $rootScope.userLogin;
 
                         console.log($rootScope.userLogin);
-
+                        $notifier.showSuccess("Welcome back! " + data[0].fullname);
                         $location.url("/user-info");
                     } else {
                         $notifier.showError("Login failed! Please try again");

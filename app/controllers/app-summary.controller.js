@@ -59,28 +59,28 @@
             incorrect: userCount - userCorrect,
             score: userScore * timeCoefficient,
             percent: Math.round((userCorrect / maxCount) * 100) + "%",
+            scorePerTen: Math.round((userCorrect / maxCount) * 100),
             timePerQuestion: duration / (userCount * 1000),
         };
     };
 
     angular.module("choosing-app").controller("summaryController", summaryController);
 
-    summaryController.$inject = ["$scope", "$rootScope", "$session"];
+    summaryController.$inject = ["$scope", "$rootScope", "$session", "$http"];
 
     /** @ngInject */
-    function summaryController($scope, $rootScope, $session) {
+    function summaryController($scope, $rootScope, $session, $http) {
         const data = $session.get("data_complete");
-        const { quiz, questions } = data;
+        const { quiz, questions, info } = data;
 
         if (!quiz || !questions) {
             console.error("Can't complete quiz. Because quiz or questions is not specified");
             return null;
         }
 
-        $scope.info = calculateMarks(questions, $session);
+        $scope.info = info;
         $scope.quiz = quiz;
         $scope.questions = questions;
 
-        console.log($scope.questions);
     }
 })();

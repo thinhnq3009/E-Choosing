@@ -5,7 +5,7 @@
 
     /** @ngInject */
     function $session() {
-        return  {
+        return {
             set: set,
             get: get,
             delete: del,
@@ -24,7 +24,7 @@
             if (typeof data === "object") {
                 sessionStorage.setItem(key, JSON.stringify(data));
             } else {
-                sessionStorage.getItem(key, data);
+                sessionStorage.setItem(key, data);
             }
         }
     }

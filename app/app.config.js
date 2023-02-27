@@ -37,9 +37,8 @@
                 .when("/404error", {
                     templateUrl: "views/404-page.html",
                 })
-                .when("/test", {
-                    templateUrl: "views/app-test.html",
-                    controller: "testController",
+                .when("/reset-password", {
+                    templateUrl: "views/app-forgot-password.html",
                 })
         },
     ]);

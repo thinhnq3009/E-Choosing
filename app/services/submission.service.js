@@ -3,9 +3,9 @@
 
     angular.module("choosing-app").factory("submissionQuiz", submissionQuiz);
 
-    submissionQuiz.$inject = ["$rootScope", "$http"];
+    submissionQuiz.$inject = ["$rootScope", "$http", "$session"];
 
-    function submissionQuiz($rootScope, $http) {
+    function submissionQuiz($rootScope, $http, $session) {
         var factory = {};
         factory.submitQuiz = function (code) {
             const userId = $rootScope.userLogin
